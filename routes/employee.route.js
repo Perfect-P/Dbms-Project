@@ -10,4 +10,4 @@ router.get('/create', controller.create); // chuyen toi module.exports.create
 router.get('/:id',controller.getID); // view user 
 
 
-module.exports = router;
+module.exports =router;
