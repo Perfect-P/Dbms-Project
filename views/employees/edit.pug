@@ -1,0 +1,40 @@
+extends ../layout/common.pug
+block content
+	h1 Edit Employee
+
+	each emp in emps
+		form(action="/employees/"+emp.emp_id+"/edit", method="POST")
+			.form-group
+				label(for="name") Name
+				input#name.form-control(type="text", name="name",value=emp.emp_name)
+
+			.form-group
+				lablel(for="address") Address
+				input#address.form-control(type="text", name="address",value=emp.emp_address)
+
+			.form-group.d-flex
+				if emp.emp_gender = 'M'
+					lablel(for="male") Male
+					input#male.form-control(type="radio", name="gender", value ="M",checked ='')
+					lablel(for="female") Female
+					input#female.form-control(type="radio", name="gender", value ="F")
+				else if emp.emp_gender = 'F'
+					lablel(for="male") Male
+					input#male.form-control(type="radio", name="gender", value ="M")
+					lablel(for="female") Female
+					input#female.form-control(type="radio", name="gender", value ="F",checked='')
+
+			.form-group
+				lablel(for="birthday") Birthday
+				input#birthday.form-control(type="date", name="birthday", value='1998-3-14')
+
+			.form-group
+				lablel(for="phone") Phone
+				input#phone.form-control(type="text", name="phone",value=emp.emp_phone)
+
+			.form-group
+				lablel(for="username") User Name
+				input#username.form-control(type="text", name="username",emp.emp_acc_name,value=emp.acc_name)
+
+			button Create
+				
