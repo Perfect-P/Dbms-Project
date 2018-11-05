@@ -46,8 +46,8 @@ module.exports.getID =function(req,res){
 		if (err){
 			console.log(err);
 		}
-		console.log(result);
-	    res.render('employees/view', {emp: result});
+		//console.log(result);
+	    res.render('employees/view', {emps: result});
 	});
 }
 
