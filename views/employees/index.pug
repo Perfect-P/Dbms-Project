@@ -1,7 +1,9 @@
 extends ../layout/common.pug
 block content
 
-	h1 employees
+	h1 Employees
+
+	a.btn.btn-primary(href="/employees/create") New user
 
 	form(action="/employees/search", method="GET")
 		input(type="text", name="q")
@@ -11,8 +13,12 @@ block content
 		tr
 			th Name
 			th Address
+			th ID
+			th
 		each emp in emps
 			tr
-				td=emp.name
-				td=emp.address
-				td=emp.id
+				td=emp.emp_name
+				td=emp.emp_address
+				td=emp.emp_id
+				td
+					a(href="/employees/"+ emp.emp_id) view

@@ -2,33 +2,24 @@ var express= require('express');
 var app = express();
 var mysql =require('mysql');
 var pug = require('pug'); 
+var date = require('date-and-time');
+var bodyParser = require('body-parser'); // npm install body-parser --save de doc du lieu tu req.body
+
+
+
 app.set('view engine', 'pug');
 app.set('views', './views');
-
-var con = mysql.createConnection({
-  host: "localhost",
-  user: "student",
-  password:"student",
-  database:"dbms"
-});
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 
-var empRoute = require('./routes/employee.route');
+var empRoute = require('./routes/employee.route');// require route
 
 
 app.use('/employees', empRoute);
-app.get('/',function(req,res){
+app.get('/',function(req,res){// render trang index(trang chu)
   res.render('index');
 });
-// app.get('/employees',function(req,res){
-//   con.connect(function(err) {
-//     if (err) throw err;
-//     con.query("SELECT name, address FROM customers", function (err, result, fields) {
-//       if (err) throw err;
-//       res.render('employees/index', {emps: result});
-//     });
-//   });
-// });
 
 
 var port =3000;
