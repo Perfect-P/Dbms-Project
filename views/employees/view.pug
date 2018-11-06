@@ -3,22 +3,37 @@ block content
 	h1 View Employee
 
 	each emp in emps
+		a.btn.btn-primary(href="/employees/"+emp.emp_id+"/edit") Edit
 		ul.list-group
 			.form-group
 				label Name
-				li.list-group-item=emp.emp_name
+				li.list-group-item= emp.emp_name
 			.form-group
 				label Address
-				li.list-group-item=emp.emp_address
+				li.list-group-item= emp.emp_address
 			.form-group
 				label Phone
-				li.list-group-item=emp.emp_phone
+				li.list-group-item= emp.emp_phone
 			.form-group
 				label Birthday
-				li.list-group-item=emp.emp_dob
+				li.list-group-item= emp.emp_dob
 			.form-group
 				label gender
-				li.list-group-item=emp.emp_gender
+				li.list-group-item= emp.emp_gender
 			.form-group
 				label Account Name
-				li.list-group-item=emp.acc_name
+				li.list-group-item= emp.acc_name
+			.form-group
+				label Salary Level
+				.dropdown
+					button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+						| Dropdown button
+					.dropdown-menu(aria-labelledby='dropdownMenuButton')
+						a.dropdown-item(href='#') Action
+						a.dropdown-item(href='#') Another action
+						a.dropdown-item(href='#') Something else here
+
+
+
+	
+	

@@ -10,17 +10,19 @@ var bodyParser = require('body-parser'); // npm install body-parser --save de do
 app.set('view engine', 'pug');
 app.set('views', './views');
 app.use(bodyParser.json()); // for parsing application/json
-app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-
+app.use(bodyParser.urlencoded({extended: true})); // for parsing application/x-www-form-urlencoded
 
 var empRoute = require('./routes/employee.route');// require route
-
+var deptRoute =require('./routes/department.route');
+var salRoute = require('./routes/salary.route');
 
 app.use('/employees', empRoute);
+app.use('/departments', deptRoute);
+app.use('/salary',salRoute);
+
 app.get('/',function(req,res){// render trang index(trang chu)
   res.render('index');
 });
-
 
 var port =3000;
 
