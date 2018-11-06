@@ -1,8 +1,7 @@
 var mysql =require('mysql');
 var connection = mysql.createConnection({ // ket noi mysql
 	host: "localhost",
-	user: "student",
-	password:"student",
+	user: "root",
 	database:"dbms"
 });
 

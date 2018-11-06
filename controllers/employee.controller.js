@@ -1,10 +1,9 @@
 var date = require('date-and-time');
 var mysql =require('mysql');
 var connection = mysql.createConnection({ // ket noi mysql
-	host: "localhost",
-	user: "student",
-	password:"student",
-	database:"dbms"
+  host: "localhost",
+  user: "root",
+  database:"dbms"
 });
 
 
