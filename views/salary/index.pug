@@ -1,0 +1,17 @@
+extends ../layout/common.pug
+block content
+
+	h1 Salary
+
+	table.table
+			tr
+				th Level
+				th Basic
+				th factor
+				th Extra factor
+			each sal in salary
+				tr
+					td=sal.sal_lvl
+					td=sal.sal_basic
+					td=sal.sal_factor
+					td=sal.sal_exfac

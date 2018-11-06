@@ -21,4 +21,6 @@ block content
 				td=emp.emp_address
 				td=emp.emp_id
 				td
-					a(href="/employees/"+ emp.emp_id) view
+					.btn-group
+						a.btn.btn-primary(href="/employees/"+ emp.emp_id) view
+						a.btn.btn-primary(href="/employees/"+emp.emp_id+"/delete") Delete

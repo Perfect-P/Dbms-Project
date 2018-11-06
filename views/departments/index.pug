@@ -1,0 +1,22 @@
+extends ../layout/common.pug
+block content
+
+	h1 Departments
+
+	table.table
+			tr
+				th ID
+				th Name
+				th Address
+				th Phone
+				th
+			each dept in depts
+				tr
+					td=dept.dept_id
+					td=dept.dept_name
+					td=dept.dept_address
+					td=dept.dept_phone
+					td
+						.has-submenu
+							Options
+								
