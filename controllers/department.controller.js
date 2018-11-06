@@ -12,3 +12,18 @@ module.exports.index = function(req,res){
 		res.render('departments/index',{depts: result});
 	});
 }
+
+module.exports.create = function(req,res){  // render trang create
+    res.render('departments/create');
+}
+
+module.exports.postCreate = function(req,res){// them nhan vien vao
+    connection.query('insert into departments values(?,?,?,?)',
+    [req.body.id,req.body.name,req.body.address,parseFloat(req.body.phone)],
+    	function(err,result,next){
+     	if(err){
+     		console.log(err);
+     	}
+    	res.redirect('/departments');
+    });
+}

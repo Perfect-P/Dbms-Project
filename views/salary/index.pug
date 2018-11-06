@@ -3,15 +3,22 @@ block content
 
 	h1 Salary
 
+	a.btn.btn-primary(href="/salary/create") New level salary
+
 	table.table
 			tr
 				th Level
 				th Basic
 				th factor
 				th Extra factor
+				th
 			each sal in salary
 				tr
 					td=sal.sal_lvl
 					td=sal.sal_basic
 					td=sal.sal_factor
 					td=sal.sal_exfac
+					td
+						.btn-group
+							a.btn.btn-primary(href="/salary/"+sal.sal_lvl.toString()+"/edit") Edit
+							a.btn.btn-danger(href="/salary/"+sal.sal_lvl.toString()+"/delete") Delete

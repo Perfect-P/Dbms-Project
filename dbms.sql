@@ -1,4 +1,3 @@
-create database dbms;
 use dbms;
 
 create table employees (
@@ -97,7 +96,7 @@ insert into employees values (	'emp0000002',
 								'phamhoanghao');
 
 desc departments;
-insert into departments values ('dept000001', 'phong phat trien ung dung', 'ha noi', '01299838481');
+insert into departments values ('dept000002', 'phong y tuong', 'ha noi', '0555884831');
 
 desc positions;
 insert into positions values ('pos0000001', 'giam doc');
@@ -106,7 +105,7 @@ desc educations;
 insert into educations values ('edu0000001', 'giao su', 'CNTT');
 
 desc salary;
-insert into salary values (1, 1000, 2, 10);
+insert into salary values (2, 1500, 2.5, 1.5);
 
 desc time_working;
 insert into time_working values ('emp0000001', 'pos0000001', now());
@@ -135,25 +134,14 @@ begin
 	insert into employees(emp_id, emp_name, emp_address, emp_gender, emp_dob, emp_phone,acc_name)
     values(v_id, v_name, v_address,v_gender,v_birthday,v_phone,v_accname);
 end:)
+
+
+
 delimiter ;
-
-
-
-
 call add_emp('emp0000002','Pham Hoang Hao', 'Can Tho', 'M', '1998-7-6', 0987654321, 'phamhoanghao');
 desc employees;
 
-#=======================================================================
-delimiter :)
-create procedure namesa()
-as
-begin
-end :)
-delimiter ;
-#========================================================================
-
-#-------UPDATE-----------
-#### EMPLOYEES 1
+####
 delimiter :)
 create procedure update_emp(v_id char(10), v_name varchar(50), v_address varchar(100),v_gender char(1),
  v_birthday date, v_phone numeric(11,0), v_accname varchar(60))
@@ -169,13 +157,11 @@ begin
 end:)
 delimiter ;
 
-drop procedure update_emp;
-select * from employees;
-call update_emp('emp0000002','Pham Hoang Hao', 'Can Tho', 'F', '1998-7-6', 0987654321, 'phamhoanghao');
+call update_emp('emp0000001','Le Phuc Loc', 'Can Tho', 'M', '1998-11-17','0909090909','lploc');
+
 
 #### DEPARTMENTS 2
 delimiter :)
-desc departments;
 create procedure update_dept(v_id char(10), v_name varchar(30), v_address varchar(50), v_phone numeric(11,0))
 begin
 	update departments set
@@ -322,7 +308,7 @@ desc salary;
 delimiter :)
 create procedure delete_sal(v_lvl decimal(10,5))
 begin
-	delete from salary where sal_lvl = v_id;
+	delete from salary where sal_lvl = v_lvl;
 end :)
 delimiter ;
 drop procedure delete_sal;
@@ -335,6 +321,4 @@ begin
 	delete from time_working where pos_id = v_id and emp_id = v_emp_id;
 end :)
 delimiter ;
-
-
 

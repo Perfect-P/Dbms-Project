@@ -1,0 +1,21 @@
+extends ../layout/common.pug
+block content
+
+	h1 Create level salary
+	form(action="/salary/create", method="POST")
+		.form-group
+			label(for="id") Level
+			input#id.form-control(type="text", name="level")
+
+		.form-group
+			label(for="name") Basic
+			input#name.form-control(type="text", name="basic")
+
+		.form-group
+			lablel(for="address") Factor
+			input#address.form-control(type="text", name="factor")
+		.form-group
+			lablel(for="phone") Extra Factor
+			input#phone.form-control(type="text", name="exfac")
+
+		button.btn.btn-primary Create

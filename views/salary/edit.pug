@@ -1,0 +1,23 @@
+extends ../layout/common.pug
+block content
+
+	h1 Edit
+
+	each sal in salary
+		form(action="/salary/"+sal_lvl+"/edit", method="POST")
+			.form-group
+				label(for="level") Level
+				input#level.form-control(type="text", name="level", value=sal.sal_lvl)
+
+			.form-group
+				label(for="basic") Basic
+				input#basic.form-control(type="text", name="basic",value=sal.sal_basic)
+
+			.form-group
+				lablel(for="factor") Factor
+				input#factor.form-control(type="text", name="factor",value=sal.sal_factor)
+			.form-group
+				lablel(for="exfac") Extra Factor
+				input#exfac.form-control(type="text", name="exfac",value=sal.sal_exfac)
+
+			button.btn.btn-primary Create
