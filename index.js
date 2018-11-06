@@ -20,6 +20,8 @@ app.use('/employees', empRoute);
 app.use('/departments', deptRoute);
 app.use('/salary',salRoute);
 
+app.use(express.static(__dirname + "/public"));
+
 app.get('/',function(req,res){// render trang index(trang chu)
   res.render('index');
 });

@@ -35,6 +35,14 @@ block content
 			.form-group
 				lablel(for="username") User Name
 				input#username.form-control(type="text", name="username",emp.emp_acc_name,value=emp.acc_name)
+			.from-group
+				label(for="salary") Salary
+				.dropdown
+						input#dropdownMenuButton.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+							| Salary Levels
+						.dropdown-menu(aria-labelledby='dropdownMenuButton')
+							each sal in salary
+								#salary.form-control.dropdown-item(name="salary")=sal.sal_lvl
 
 			button Create
 				

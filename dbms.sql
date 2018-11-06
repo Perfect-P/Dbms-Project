@@ -134,18 +134,17 @@ call show_sal('emp0000001');
 #-------1
 delimiter :)
 create procedure add_emp(v_id char(10), v_name varchar(50), v_address varchar(100),v_gender char(1),
- v_birthday date, v_phone numeric(11,0), v_accname varchar(60))
+ v_birthday date, v_phone numeric(11,0), v_accname varchar(60), v_sal numeric(10, 5))
 begin
-	insert into employees(emp_id, emp_name, emp_address, emp_gender, emp_dob, emp_phone,acc_name)
-    values(v_id, v_name, v_address,v_gender,v_birthday,v_phone,v_accname);
+	insert into employees(emp_id, emp_name, emp_address, emp_gender, emp_dob, emp_phone,acc_name, sal_lvl)
+    values(v_id, v_name, v_address,v_gender,v_birthday,v_phone,v_accname, v_sal);
 end:)
-<<<<<<< HEAD
-=======
+
 delimiter ;
 
 call add_emp('emp0000002','Pham Hoang Hao', 'Can Tho', 'M', '1998-7-6', 0987654321, 'phamhoanghao');
 desc employees;
->>>>>>> 1d4166df86eb8411441162b3bd389a6c7974eceb
+
 
 #-------2
 delimiter :)

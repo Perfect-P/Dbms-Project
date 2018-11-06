@@ -1,7 +1,18 @@
 extends ./layout/common.pug
 block content
-	h1 Employees List
-	.btn-group
-		a.btn.btn-primary(href="/employees") Employees
-		a.btn.btn-primary(href="/departments") Departments
-		a.btn.btn-primary(href="/salary") Salary
+	h1 Employees Management
+	card.form-group.form-inline
+		.card(style='width: 18rem;')
+			img.card-img-top(src='./images/employees.jpg', alt='Card image cap')
+			.card-body
+				a.btn.btn-primary(href='/employees') Employees
+		
+		.card(style='width: 18rem;')
+			img.card-img-top(src='./images/employees.jpg', alt='Card image cap')
+			.card-body
+				a.btn.btn-primary(href='/departments') Departments
+
+		.card(style='width: 18rem;')
+			img.card-img-top(src='./images/employees.jpg', alt='Card image cap')
+			.card-body
+				a.btn.btn-primary(href='/salary') Salary

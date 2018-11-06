@@ -2,8 +2,7 @@ var date = require('date-and-time');
 var mysql =require('mysql');
 var connection = mysql.createConnection({ // ket noi mysql
   host: "localhost",
-  user: "student",
-  password:"student",
+	user: "root",
   database:"dbms"
 });
 
@@ -39,8 +38,8 @@ module.exports.create = function(req,res){  // render trang create
 
 
 module.exports.postCreate = function(req,res){// them nhan vien vao
-    connection.query('call add_emp(?,?,?,?,?,?,?)',
-    [req.body.id,req.body.name,req.body.address,req.body.gender,req.body.birthday,parseFloat(req.body.phone),req.body.username],
+    connection.query('call add_emp(?,?,?,?,?,?,?,?)',
+    [req.body.id,req.body.name,req.body.address,req.body.gender,req.body.birthday,parseFloat(req.body.phone),req.body.username,req.body.salary],
     	function(err,result,next){
      	if(err){
      		console.log(err);
