@@ -142,6 +142,7 @@ end:)
 
 delimiter ;
 
+drop procedure add_emp;
 call add_emp('emp0000002','Pham Hoang Hao', 'Can Tho', 'M', '1998-7-6', 0987654321, 'phamhoanghao');
 desc employees;
 
@@ -226,10 +227,10 @@ desc employees;
 =======
 >>>>>>> 1d4166df86eb8411441162b3bd389a6c7974eceb
 
-####
+#### update
 delimiter :)
 create procedure update_emp(v_id char(10), v_name varchar(50), v_address varchar(100),v_gender char(1),
- v_birthday date, v_phone numeric(11,0), v_accname varchar(60))
+ v_birthday date, v_phone numeric(11,0), v_accname varchar(60), v_sal numeric(10, 5))
 begin
 	update employees set
     emp_name = v_name,
@@ -237,11 +238,13 @@ begin
     emp_gender = v_gender,
     emp_dob = v_birthday,
     emp_phone = v_phone,
-	acc_name = v_accname
+	acc_name = v_accname,
+    sal_lvl = v_sal
     where emp_id = v_id;
 end:)
 delimiter ;
 
+drop procedure update_emp;
 call update_emp('emp0000001','Le Phuc Loc', 'Can Tho', 'M', '1998-11-17','0909090909','lploc');
 
 

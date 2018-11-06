@@ -37,12 +37,13 @@ block content
 				input#username.form-control(type="text", name="username",emp.emp_acc_name,value=emp.acc_name)
 			.from-group
 				label(for="salary") Salary
-				.dropdown
-						input#dropdownMenuButton.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-							| Salary Levels
-						.dropdown-menu(aria-labelledby='dropdownMenuButton')
-							each sal in salary
-								#salary.form-control.dropdown-item(name="salary")=sal.sal_lvl
+				.input-group.mb-3
+					.input-group-prepend
+						label.input-group-text(for='inputGroupSelect01') Options
+					select#inputGroupSelect01.custom-select(name='salary')
+						
+						each sal in salary
+							option(selected='',value=sal.sal_lvl)=sal.sal_lvl
 
-			button Create
+			button Update
 				

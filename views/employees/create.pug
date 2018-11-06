@@ -37,12 +37,12 @@ block content
 		.input-group.mb-3
 			.input-group-prepend
 				label.input-group-text(for='inputGroupSelect01') Options
-			select#inputGroupSelect01.custom-select
+			select#inputGroupSelect01.custom-select(name='salary')
 				option(selected='') Choose...
 				each sal in salary
-					option(value=sal.sal_lvl, name="salary")=sal.sal_lvl
+					option(value=sal.sal_lvl)=sal.sal_lvl
 				
-
-								
+	
+											
 		
 		button.btn.btn-primary Create
