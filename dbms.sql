@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-=======
-create database dbms;
-create user student identified by 'student';
->>>>>>> 1d4166df86eb8411441162b3bd389a6c7974eceb
 use dbms;
 
 

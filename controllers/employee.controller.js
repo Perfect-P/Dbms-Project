@@ -2,7 +2,8 @@ var date = require('date-and-time');
 var mysql =require('mysql');
 var connection = mysql.createConnection({ // ket noi mysql
   host: "localhost",
-  user: "root",
+  user: "student",
+  password:"student",
   database:"dbms"
 });
 
@@ -29,7 +30,11 @@ module.exports.search = function(req,res){// tim kiem nhan vien
 	});
 }
 module.exports.create = function(req,res){  // render trang create
-    res.render('employees/create');
+	connection.query('select * from salary', function(err,result,fileds){
+		if (err) throw err;
+		res.render('employees/create',{salary: result});
+	})
+    
 }
 
 

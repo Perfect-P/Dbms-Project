@@ -19,5 +19,8 @@ block content
 					td=dept.dept_address
 					td=dept.dept_phone
 					td
+						.btn-group
+							a.btn.btn-primary(href="/departments/"+dept.dept_id+"/edit") Edit
+							a.btn.btn-danger(href="/departments/"+dept.dept_id+"/delete") Delete
 						
 								

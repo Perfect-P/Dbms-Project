@@ -1,7 +1,7 @@
 extends ../layout/common.pug
 block content
 
-	h1 Create user
+	h1 Create Employee
 	form(action="/employees/create", method="POST")
 		.form-group
 			label(for="id") ID
@@ -32,5 +32,13 @@ block content
 		.form-group
 			lablel(for="username") User Name
 			input#username.form-control(type="text", name="username")
-				
-		button Create
+
+		lable Level Salary
+		.dropdown
+			button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+				| Levels
+				each sal in salary
+					.dropdown-menu(aria-labelledby='dropdownMenuButton')
+						a.dropdown-item(name="sal_lvl",value=sal.sal_lvl)= sal.sal_lvl
+		
+		button.btn.btn-primary Create

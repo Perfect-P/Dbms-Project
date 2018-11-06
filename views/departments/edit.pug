@@ -1,0 +1,22 @@
+extends ../layout/common.pug
+block content
+
+	h1 Edit Department
+	each dept in depts
+		form(action="/departments/"+dept.dept_id+"/edit", method="POST")
+			.form-group
+				label(for="id") ID
+				input#id.form-control(type="text", name="id", value=dept.dept_id)
+
+			.form-group
+				label(for="name") Name
+				input#name.form-control(type="text", name="name",value=dept.dept_name)
+
+			.form-group
+				lablel(for="address") Address
+				input#address.form-control(type="text", name="address",value=dept.dept_address)
+			.form-group
+				lablel(for="phone") Phone
+				input#phone.form-control(type="text", name="phone",value= dept.dept_phone)
+
+			button.btn.btn-primary edit
