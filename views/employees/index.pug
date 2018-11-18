@@ -4,6 +4,8 @@ block content
 	h1 Employees
 
 	a.btn.btn-primary(href="/employees/create") New Employee
+	br
+	a.i.fas.fa-home.btn.btn-primary(href="/")
 
 	form(action="/employees/search", method="GET")
 		input(type="text", name="q")
