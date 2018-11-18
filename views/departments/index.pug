@@ -3,7 +3,21 @@ block content
 
 	h1 Departments
 
-	a.btn.btn-primary(href="/departments/create") New Department
+	nav.navbar.navbar-expand-lg.navbar-light.bg-light
+		button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+			span.navbar-toggler-icon
+		#navbarSupportedContent.collapse.navbar-collapse
+			ul.navbar-nav.mr-auto
+				li.nav-item
+					a.i.fas.fa-home.nav-link(href="/")
+				li.nav-item
+					a.nav-link(href="/departments/create") New Employee
+			
+			form.form-inline.my-2.my-lg-0(action="/departments/search", method="GET")
+				input.form-control.mr-sm-2(type="text", name="q")
+				button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+
+
 
 	table.table
 			tr
@@ -19,8 +33,13 @@ block content
 					td=dept.dept_address
 					td=dept.dept_phone
 					td
-						.btn-group
-							a.btn.btn-primary(href="/departments/"+dept.dept_id+"/edit") Edit
-							a.btn.btn-danger(href="/departments/"+dept.dept_id+"/delete") Delete
+						.from-group
+						.dropdown
+							button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+								|	Option
+							.dropdown-menu(aria-labelledby='dropdownMenuButton')
+								a.dropdown-item(href="/departments/"+ dept.dept_id) View
+								a.dropdown-item(href="/departments/"+dept.dept_id+"/edit") Edit
+								a.dropdown-item(href="/departments/"+dept.dept_id+"/delete") Delete
 						
 								
