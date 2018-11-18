@@ -31,15 +31,11 @@ block content
 			.form-group
 				lablel(for="phone") Phone
 				input#phone.form-control(type="text", name="phone",value=emp.emp_phone)
-
-			.form-group
-				lablel(for="username") User Name
-				input#username.form-control(type="text", name="username",emp.emp_acc_name,value=emp.acc_name)
 			.from-group
 				label(for="salary") Salary
 				.input-group.mb-3
 					.input-group-prepend
-						label.input-group-text(for='inputGroupSelect01') Options
+						label.input-group-text(for='inputGroupSelect01') Salary level
 					select#inputGroupSelect01.custom-select(name='salary')
 						
 						each sal in salary

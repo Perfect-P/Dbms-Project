@@ -411,36 +411,3 @@ end :)
 delimiter ;
 drop procedure delete_tw;
 
-
-
-### Trigger
-use dbms;
-create table employees_log(
-	emp_name varchar(50) not null,
-	emp_gender char(1) not null,
-	emp_dob date not null,
-	emp_address varchar(100),
-	emp_phone numeric(11,0),
-	sal_lvl numeric(10, 5) references salary(sal_lvl)
-);
-
-
-drop trigger if exists upd_trig;
-delimiter :)
-create trigger upd_trig after update on employees for each row
-begin
-	insert into employees_log
-    set 
-        emp_name = new.emp_name,
-		emp_address = new.emp_address,
-		emp_gender = new.emp_gender,
-		emp_dob = new.emp_dob,
-		emp_phone = new.emp_phone,
-        sal_lvl= new.sal_lvl,
-		date = now();
-end:)
-delimiter ;
-select * from employees;
-call update_emp('emp0000002','Pham Hoang Hao', 'Can Tho', 'M', '1998-11-17','09090909',2);
-
-
