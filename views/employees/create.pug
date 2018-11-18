@@ -11,15 +11,15 @@ block content
 	form(action="/employees/create", method="POST")
 		.form-group
 			label(for="id") ID
-			input#id.form-control(type="text", name="id")
+			input#id.form-control(type="text", name="id", value = values ? values.id : '')
 
 		.form-group
 			label(for="name") Name
-			input#name.form-control(type="text", name="name")
+			input#name.form-control(type="text", name="name", value = values ? values.name : '')
 
 		.form-group
 			lablel(for="address") Address
-			input#address.form-control(type="text", name="address")
+			input#address.form-control(type="text", name="address", value = values ? values.address : '')
 
 		.form-group.d-flex
 			lablel(for="male") Male
@@ -29,15 +29,11 @@ block content
 
 		.form-group
 			lablel(for="birthday") Birthday
-			input#birthday.form-control(type="date", name="birthday")
+			input#birthday.form-control(type="date", name="birthday", value = values ? values.birthday : '')
 
 		.form-group
 			lablel(for="phone") Phone
-			input#phone.form-control(type="text", name="phone")
-
-		.form-group
-			lablel(for="username") User Name
-			input#username.form-control(type="text", name="username")
+			input#phone.form-control(type="text", name="phone", value = values ? values.phone : '')
 
 		lable Level Salary
 		.input-group.mb-3

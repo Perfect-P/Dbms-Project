@@ -13,7 +13,7 @@ module.exports.postCreate = function(req,res,next){
         errors.push('This birthday of employee is required');
     }
     if(errors.length){ // neu errors.length > 0 
-        res.render('employees/create', {errors: errors, salary:req.body.salary});// res.render 'user/create' truyen vao 2 tham so errors, values(values dung de giu lai thong tin ng dung da nhap)
+        res.render('employees/create', {errors: errors,values: req.body, salary:req.body.salary});// res.render 'user/create' truyen vao 2 tham so errors, values(values dung de giu lai thong tin ng dung da nhap)
         return; // return de ngat k them du lieu vao db khi co loi
     }
     next();
