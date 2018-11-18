@@ -1,15 +1,29 @@
 extends ../layout/common.pug
 block content
 
-	h1 Employees
+	h1 Employees 
 
+	nav.navbar.navbar-expand-lg.navbar-light.bg-light
+		button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+			span.navbar-toggler-icon
+		#navbarSupportedContent.collapse.navbar-collapse
+			ul.navbar-nav.mr-auto
+				li.nav-item
+					a.i.fas.fa-home.nav-link(href="/")
+				li.nav-item
+					a.nav-link(href="/employees/create") New Employee
+			
+			form.form-inline.my-2.my-lg-0(action="/employees/search", method="GET")
+				input.form-control.mr-sm-2(type="text", name="q")
+				button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+
+<<<<<<< HEAD
 	a.btn.btn-primary(href="/employees/create") New Employee
 	br
 	a.i.fas.fa-home.btn.btn-primary(href="/")
+=======
+>>>>>>> e47892a9b7b0dbee3ce21262d3e2a01c5fee3529
 
-	form(action="/employees/search", method="GET")
-		input(type="text", name="q")
-		button(class="btn btn-primary ml-2") search
 		
 	table.table
 		tr
@@ -23,6 +37,14 @@ block content
 				td=emp.emp_address
 				td=emp.emp_id
 				td
-					.btn-group
-						a.btn.btn-primary(href="/employees/"+ emp.emp_id) view
-						a.btn.btn-primary(href="/employees/"+emp.emp_id+"/delete") Delete
+					.from-group
+						.dropdown
+							button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+								|	Option
+							.dropdown-menu(aria-labelledby='dropdownMenuButton')
+								a.dropdown-item(href="/employees/"+ emp.emp_id) View
+								a.dropdown-item(href="/employees/"+emp.emp_id+"/edit") Edit
+								a.dropdown-item(href="/employees/"+emp.emp_id+"/delete") Delete
+							
+								
+
