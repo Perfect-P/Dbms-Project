@@ -2,9 +2,10 @@ var date = require('date-and-time');
 var mysql =require('mysql');
 var connection = mysql.createConnection({ // ket noi mysql
   host: "localhost",
-	user: "root",
+  user: "student",
+  password:"student",
   database:"dbms",
-  multipleStatements: true
+  multipleStatements: true 
 });
 
 
@@ -39,8 +40,8 @@ module.exports.create = function(req,res){  // render trang create
 
 
 module.exports.postCreate = function(req,res){// them nhan vien vao
-    connection.query('call add_emp(?,?,?,?,?,?,?,?)',
-    [req.body.id,req.body.name,req.body.address,req.body.gender,req.body.birthday,parseFloat(req.body.phone),req.body.username,req.body.salary],
+    connection.query('call add_emp(?,?,?,?,?,?,?)',
+    [req.body.id,req.body.name,req.body.address,req.body.gender,req.body.birthday,parseFloat(req.body.phone),req.body.username],
     	function(err,result,next){
      	if(err){
      		console.log(err);
@@ -64,7 +65,6 @@ module.exports.getID =function(req,res){ // view employee
 
 module.exports.edit = function(req,res){ // goi procedure trong mysql va chinh sua database
 	var id = req.params.id;
-	
 	connection.query("SELECT * FROM employees where emp_id = ?; select * from salary",
 		id, 
 		function (err, results, fields) {
@@ -73,14 +73,12 @@ module.exports.edit = function(req,res){ // goi procedure trong mysql va chinh s
 		}
 		res.render('employees/edit',{emps: results[0], salary: results[1]});
 	});
-	
 }
-
 
 module.exports.postEdit = function(req,res){// submit thong tin da chinh sua
 	var id =req.params.id;
-	connection.query('call update_emp(?,?,?,?,?,?,?,?)',
-	[id,req.body.name,req.body.address,req.body.gender,req.body.birthday,parseFloat(req.body.phone),req.body.username,req.body.salary],
+	connection.query('call update_emp(?,?,?,?,?,?,?)',
+	[id,req.body.name,req.body.address,req.body.gender,req.body.birthday,parseFloat(req.body.phone),req.body.username],
 		function(err,result,fields){
 		if(err) console.log(err)
 		res.redirect('/employees')

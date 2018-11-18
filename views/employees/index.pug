@@ -1,9 +1,12 @@
 extends ../layout/common.pug
 block content
 
-	h1 Employees
+	h1 Employees 
 
+	a.i.fas.fa-home.btn.btn-primary(href="/")
+	br
 	a.btn.btn-primary(href="/employees/create") New Employee
+
 
 	form(action="/employees/search", method="GET")
 		input(type="text", name="q")
