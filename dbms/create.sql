@@ -25,7 +25,7 @@ begin
 end:)
 delimiter ;
 
-call add_dept('emp0000002','Pham Hoang Hao', 'Can Tho', 'M', '1998-7-6', 0987654321, 'phamhoanghao');
+call add_dept('dept000001','Pham Hoang Hao', 'Can Tho', 0987654321);
 desc departments;
 
 #-------3
