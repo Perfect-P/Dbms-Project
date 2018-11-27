@@ -2,16 +2,10 @@ var date = require('date-and-time');
 var mysql =require('mysql');
 var connection = mysql.createConnection({ // ket noi mysql
   host: "localhost",
-<<<<<<< HEAD
 	user: "student",
 	password:"student",
   	database:"dbms",
   	multipleStatements: true
-=======
-  user: "root",
-  database:"dbms",
-  multipleStatements: true 
->>>>>>> e47892a9b7b0dbee3ce21262d3e2a01c5fee3529
 });
 
 
@@ -40,14 +34,15 @@ module.exports.create = function(req,res){  // render trang create
 	connection.query('select * from salary', function(err,result,fileds){
 		if (err) throw err;
 		res.render('employees/create',{salary: result});
-	})
-    
+	})  
 }
 
 
 module.exports.postCreate = function(req,res){// them nhan vien vao
-    connection.query('call add_emp(?,?,?,?,?,?,?)',
-    [req.body.id,req.body.name,req.body.address,req.body.gender,req.body.birthday,parseFloat(req.body.phone),req.body.username],
+    connection.query('call add_emp(?,?,?,?,?,?,?,?)',
+    [req.body.id,req.body.name,req.body.address,req.body.gender,
+    req.body.birthday,parseFloat(req.body.phone),req.body.salary,
+    req.body.education,req.body.position],
     	function(err,result,next){
      	if(err){
      		console.log(err);
@@ -59,13 +54,14 @@ module.exports.postCreate = function(req,res){// them nhan vien vao
  
 module.exports.getID =function(req,res){ // view employee
 	var id = req.params.id;
-	connection.query("SELECT * FROM employees where emp_id = ?",
-		id, 
-		function (err, result, fields) {
+	var sql="SELECT * FROM employees where emp_id = ?; select show_sal(?) as sum_salary; call show_edu(?); call show_pos(?)"
+	connection.query(sql,
+		[id,id,id,id],
+		function (err, results, fields) {
 		if (err){
 			console.log(err);
 		}
-	    res.render('employees/view', {emps: result});
+	    res.render('employees/view', {emps: results[0], salary: results[1], education: results[2], position: results[4]});
 	});
 }
 

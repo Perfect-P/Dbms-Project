@@ -1,15 +1,9 @@
 var mysql =require('mysql');
 var connection = mysql.createConnection({ // ket noi mysql
 	host: "localhost",
-<<<<<<< HEAD
 	user: "student",
 	password:"student",
 	database:"dbms"
-=======
-	user: "root",
-	database: "dbms",
-	multipleStatements: true
->>>>>>> e47892a9b7b0dbee3ce21262d3e2a01c5fee3529
 });
 
 module.exports.index = function(req,res){

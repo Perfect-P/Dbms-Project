@@ -1,5 +1,6 @@
 extends ../layout/common.pug
 block content
+
 	h1 View Employee
 
 	each emp in emps
@@ -20,12 +21,22 @@ block content
 			.form-group
 				label gender
 				li.list-group-item= emp.emp_gender
-			.form-group
-				label Account Name
-				li.list-group-item= emp.acc_name
-			.form-group
-				label Salary Level
-				li.list-group-item= emp.sal_lvl
+
+			each edu in education
+				.form-group
+					label Education
+					li.list-group-item= edu.edu_name
+
+			each pos in position
+				.form-group
+					label Position
+					li.list-group-item= pos.pos_name
+
+			each sal in salary
+				.form-group
+					label salary
+					li.list-group-item= sal.sum_salary
+
 				
 
 

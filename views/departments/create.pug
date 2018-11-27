@@ -2,8 +2,7 @@ extends ../layout/common.pug
 block content
 
 	h1 Create Department
-<<<<<<< HEAD
-
+				
 	form(action="/departments/create", method="POST")
 		.form-group
 			label(for="id") ID
@@ -20,23 +19,4 @@ block content
 			lablel(for="phone") Phone
 			input#phone.form-control(type="text", name="phone")
 
-=======
-	
-		form(action="/departments/create", method="POST")
-			.form-group
-				label(for="id") ID
-				input#id.form-control(type="text", name="id")
-
-			.form-group
-				label(for="name") Name
-				input#name.form-control(type="text", name="name")
-
-			.form-group
-				lablel(for="address") Address
-				input#address.form-control(type="text", name="address")
-			.form-group
-				lablel(for="phone") Phone
-				input#phone.form-control(type="text", name="phone")
-
->>>>>>> e47892a9b7b0dbee3ce21262d3e2a01c5fee3529
-		button.btn.btn-primary Create
+	button.btn.btn-primary Create

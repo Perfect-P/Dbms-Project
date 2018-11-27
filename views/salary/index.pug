@@ -3,10 +3,7 @@ block content
 
 	h1 Salary
 
-<<<<<<< HEAD
-	a.btn.btn-primary(href="/salary/create") New level salary
-	a.i.fas.fa-home.btn.btn-primary(href="/")
-=======
+
 	nav.navbar.navbar-expand-lg.navbar-light.bg-light
 		button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
 			span.navbar-toggler-icon
@@ -20,8 +17,6 @@ block content
 			form.form-inline.my-2.my-lg-0(action="/salary/search", method="GET")
 				input.form-control.mr-sm-2(type="text", name="q")
 				button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
-
->>>>>>> e47892a9b7b0dbee3ce21262d3e2a01c5fee3529
 
 	table.table
 			tr
@@ -42,6 +37,5 @@ block content
 							button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
 								|	Option
 							.dropdown-menu(aria-labelledby='dropdownMenuButton')
-								a.dropdown-item(href="/employees/"+ sal.sal_lvl) View
-								a.dropdown-item(href="/employees/"+sal.sal_lvl+"/edit") Edit
-								a.dropdown-item(href="/employees/"+sal.sal_lvl+"/delete") Delete
+								a.dropdown-item(href="/salary/"+sal.sal_lvl+"/edit") Edit
+								a.dropdown-item(href="/salary/"+sal.sal_lvl+"/delete") Delete

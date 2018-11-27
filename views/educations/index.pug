@@ -1,0 +1,26 @@
+extends ../layout/common.pug
+block content
+
+	h1 Education
+
+	nav.navbar.navbar-expand-lg.navbar-light.bg-light
+		button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+			span.navbar-toggler-icon
+		#navbarSupportedContent.collapse.navbar-collapse
+			ul.navbar-nav.mr-auto
+				li.nav-item
+					a.i.fas.fa-home.nav-link(href="/")
+				li.nav-item
+					a.nav-link(href="/education/create") New education
+
+	table.table
+		tr
+			th Name
+			th Major
+			th Evaluation
+		each edu in education
+			tr
+				td=edu.edu_name
+				td=edu.edu_major
+				td=edu.edu_evaluation
+			

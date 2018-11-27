@@ -12,8 +12,7 @@ create table employees (
 	dept_id char(10) references departments(dept_id),
 	pos_id char(10) references positions(pos_id),
 	edu_id char(10) references educations(edu_id),
-	sal_lvl numeric(10, 5) references salary(sal_lvl),
-	acc_name varchar(60) references accounts(acc_name) 
+	sal_lvl numeric(10, 5) references salary(sal_lvl)
 );
 
 create table departments (
@@ -82,8 +81,7 @@ insert into employees values (	'emp0000001',
 								'dept000001',
 								'pos0000001', 
 								'edu0000001',
-								1,
-								'lephucloc');
+								1);
                                 
 insert into employees values (	'emp0000002',
 								'Pham Hoang Hao', 
@@ -94,8 +92,7 @@ insert into employees values (	'emp0000002',
 								'dept000001',
 								'pos0000001', 
 								'edu0000001',
-								1,
-								'phamhoanghao');
+								1);
 
 desc departments;
 insert into departments values ('dept000002', 'phong y tuong', 'ha noi', '0555884831');
@@ -115,35 +112,37 @@ insert into time_working values ('emp0000001', 'pos0000001', now());
 desc accounts;
 insert into accounts values ( 'lephucloc', 'locratladeptrai');
 
-desc salary;
+use dbms;
+select * from employees;
 
 delimiter :)
-create procedure show_sal(v_emp_id char(10)) 
+create procedure sum_salary(v_emp_id char(10)) 
 begin
-	select sum(sal_factor*sal_basic+sal_basic*sal_exfac) as sal_sum
+	declare sum_sal numeric(10,5);
+	select sum(sal_factor*sal_basic+sal_basic*sal_exfac) into sum_sal
 	from salary join employees on salary.sal_lvl = employees.sal_lvl
 	where employees.emp_id= v_emp_id;
 end :)
 delimiter ;
 drop procedure add_emp;
 
-call show_sal('emp0000001');
+call sum_salary('emp0000001');
 
 ##### add
 
 #-------1
 delimiter :)
 create procedure add_emp(v_id char(10), v_name varchar(50), v_address varchar(100),v_gender char(1),
- v_birthday date, v_phone numeric(11,0), v_accname varchar(60), v_sal numeric(10, 5))
+ v_birthday date, v_phone numeric(11,0), v_sal numeric(10, 5))
 begin
-	insert into employees(emp_id, emp_name, emp_address, emp_gender, emp_dob, emp_phone,acc_name, sal_lvl)
-    values(v_id, v_name, v_address,v_gender,v_birthday,v_phone,v_accname, v_sal);
+	insert into employees(emp_id, emp_name, emp_address, emp_gender, emp_dob, emp_phone, sal_lvl)
+    values(v_id, v_name, v_address,v_gender,v_birthday,v_phone, v_sal);
 end:)
 
 delimiter ;
 
 drop procedure add_emp;
-call add_emp('emp0000002','Pham Hoang Hao', 'Can Tho', 'M', '1998-7-6', 0987654321, 'phamhoanghao');
+call add_emp('emp0000009','Pham Hoang Hao', 'Can Tho', 'M', '1998-7-6', 0987654321, 2);
 desc employees;
 
 
@@ -181,7 +180,7 @@ begin
 end:)
 delimiter ;
 
-call add_pos('emp0000002','Pham Hoang Hao', 'Can Tho', 'M', '1998-7-6', 0987654321, 'phamhoanghao');
+call add_emp('emp0000003','Perfect', 'Can Tho', 'M', '1998-7-6', 0987654321, 'phamhoanghao');
 desc positions;
 
 #-------5
@@ -443,4 +442,7 @@ delimiter ;
 select * from employees;
 call update_emp('emp0000002','Pham Hoang Hao', 'Can Tho', 'M', '1998-11-17','09090909',2);
 
+select * from employees join salary on employees.sal_lvl=salary.sal_lvl where emp_id='emp0000009';
 
+select * from employees;
+select * from salary;

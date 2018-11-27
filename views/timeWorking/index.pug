@@ -1,0 +1,25 @@
+extends ../layout/common.pug
+block content
+
+	h1 Time Working
+
+	nav.navbar.navbar-expand-lg.navbar-light.bg-light
+		button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+			span.navbar-toggler-icon
+		#navbarSupportedContent.collapse.navbar-collapse
+			ul.navbar-nav.mr-auto
+				li.nav-item
+					a.i.fas.fa-home.nav-link(href="/")
+				li.nav-item
+					a.nav-link(href="/education/create") New Position
+
+	table.table
+		tr
+			th Name
+			th Position
+			th inauguration
+		each tk in tiwo
+			tr
+				td=tk.emp_name
+				td=tk.pos_name
+				td=tk.inauguration

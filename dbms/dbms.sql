@@ -31,7 +31,8 @@ create table positions(
 create table educations(
 	edu_id char(10) primary key,
 	edu_name varchar(50) not null,
-	edu_major varchar(50) not null
+	edu_major varchar(50) not null,
+	edu_evaluation varchar(50) not null
 );
 
 create table salary(
@@ -101,10 +102,10 @@ desc departments;
 insert into departments values ('dept000002', 'phong y tuong', 'ha noi', '0555884831');
 
 desc positions;
-insert into positions values ('pos0000001', 'giam doc');
+insert into positions values ('pos0000002', 'nhan vien');
 
 desc educations;
-insert into educations values ('edu0000001', 'giao su', 'CNTT');
+insert into educations values ('edu0000004', 'Cu nhan', 'quan ly nhan su','xuat sac');
 
 desc salary;
 insert into salary values (2, 1500, 2.5, 1.5);
@@ -134,16 +135,16 @@ call show_sal('emp0000001');
 #-------1
 delimiter :)
 create procedure add_emp(v_id char(10), v_name varchar(50), v_address varchar(100),v_gender char(1),
- v_birthday date, v_phone numeric(11,0), v_accname varchar(60), v_sal numeric(10, 5))
+ v_birthday date, v_phone numeric(11,0), v_sal numeric(10, 5),v_edu char(10))
 begin
-	insert into employees(emp_id, emp_name, emp_address, emp_gender, emp_dob, emp_phone,acc_name, sal_lvl)
-    values(v_id, v_name, v_address,v_gender,v_birthday,v_phone,v_accname, v_sal);
+	insert into employees(emp_id, emp_name, emp_address, emp_gender, emp_dob, emp_phone, sal_lvl,edu_id)
+    values(v_id, v_name, v_address,v_gender,v_birthday,v_phone, v_sal, v_edu);
 end:)
 
 delimiter ;
 
 drop procedure add_emp;
-call add_emp('emp0000002','Pham Hoang Hao', 'Can Tho', 'M', '1998-7-6', 0987654321, 'phamhoanghao');
+call add_emp('emp0000006','Perfect', 'Can Tho', 'M', '1998-7-6', 0987654321, 2,'edu0000001');
 desc employees;
 
 
