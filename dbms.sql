@@ -102,7 +102,6 @@ insert into departments values ('dept000002', 'phong y tuong', 'ha noi', '055588
 
 desc positions;
 insert into positions values ('pos0000001', 'giam doc');
-
 desc educations;
 insert into educations values ('edu0000001', 'giao su', 'CNTT');
 
