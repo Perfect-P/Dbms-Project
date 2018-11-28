@@ -79,8 +79,19 @@ module.exports.edit = function(req,res){ // goi procedure trong mysql va chinh s
 
 module.exports.postEdit = function(req,res){// submit thong tin da chinh sua
 	var id =req.params.id;
-	connection.query('call update_emp(?,?,?,?,?,?,?)',
-	[id,req.body.name,req.body.address,req.body.gender,req.body.birthday,parseFloat(req.body.phone),req.body.username],
+	connection.query('call update_emp(?,?,?,?,?,?,?,?,?,?,?)',
+	[	id,
+		req.body.name,
+		req.body.address,
+		req.body.gender,
+		req.body.birthday,
+		parseFloat(req.body.phone),
+		rep.body.dept_name,
+		req.body.pos_name,
+		req.body.edu_name,
+		req.body.username,
+		parseFloat(rep.body.sal_lvl)
+		],
 		function(err,result,fields){
 		if(err) console.log(err)
 		res.redirect('/employees')
