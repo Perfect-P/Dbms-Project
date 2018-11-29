@@ -21,11 +21,11 @@ block content
 			lablel(for="address") Address
 			input#address.form-control(type="text", name="address")
 
-		.form-group.d-flex
-			lablel(for="male") Male
-			input#male.form-control(type="radio", name="gender", value ="M")
-			lablel(for="female") Female
-			input#female.form-control(type="radio", name="gender", value ="F")
+		.form-check.form-check-inline
+			input#male.form-check-input.p-3(type='checkbox', name="gender", value ="M")
+			label.form-check-label(for='male').p-3 Male
+			input#female.form-check-input.p-3(type='checkbox', name="gender", value ="F")
+			label.form-check-label.p-3(for='female') Female
 
 		.form-group
 			lablel(for="birthday") Birthday
@@ -43,14 +43,13 @@ block content
 			lablel(for="position") Position ID
 			input#position.form-control(type="text", name="position")
 
-		lable Level Salary
 		.input-group.mb-3
 			.input-group-prepend
-				label.input-group-text(for='inputGroupSelect01') Options
-			select#inputGroupSelect01.custom-select(name='salary')
-				option(selected='') Choose...
-				each sal in salary
-					option(value=sal.sal_lvl)=sal.sal_lvl
+				label.input-group-text(for='inputGroupSelect01') Salary Level
+				select#inputGroupSelect01.custom-select(name='salary')
+					option(selected='') Choose...
+					each sal in salary
+						option(value=sal.sal_lvl)=sal.sal_lvl
 				
 	
 											

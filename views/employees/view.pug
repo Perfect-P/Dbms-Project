@@ -8,34 +8,34 @@ block content
 		ul.list-group
 			.form-group
 				label Name
-				li.list-group-item= emp.emp_name
+				li.list-group-item.text-dark= emp.emp_name
 			.form-group
 				label Address
-				li.list-group-item= emp.emp_address
+				li.list-group-item.text-dark= emp.emp_address
 			.form-group
 				label Phone
-				li.list-group-item= emp.emp_phone
+				li.list-group-item.text-dark= emp.emp_phone
 			.form-group
 				label Birthday
-				li.list-group-item= emp.emp_dob
+				li.list-group-item.text-dark= emp.emp_dob
 			.form-group
 				label gender
-				li.list-group-item= emp.emp_gender
+				li.list-group-item.text-dark= emp.emp_gender
 
 			each edu in education
 				.form-group
 					label Education
-					li.list-group-item= edu.edu_name
+					li.list-group-item.text-dark= edu.edu_name
 
 			each pos in position
 				.form-group
 					label Position
-					li.list-group-item= pos.pos_name
+					li.list-group-item.text-dark= pos.pos_name
 
 			each sal in salary
 				.form-group
 					label salary
-					li.list-group-item= sal.sum_salary
+					li.list-group-item.text-dark= sal.sum_salary
 
 				
 

@@ -10,10 +10,16 @@ var connection = mysql.createConnection({ // ket noi mysql
 
 
 module.exports.index = function(req,res, next){ // hien thi cac nhan vien co trong csdl
+	var page = parseInt(req.query.page) || 1;
+	var currentPage =[page];
+	var pages =[page,page+1,page+2];
+	var perPage =8;
+	var start = (page -1)*perPage;
+	var end = page*perPage;
 	connection.query("SELECT emp_name, emp_address, emp_id FROM employees",
 		function (err, result, fields) {
 		if (err) throw err;
-	    res.render('employees/index', {emps: result});
+	    res.render('employees/index', {emps: result.splice(start,end), n: pages, current: currentPage});
 	});
 }
 

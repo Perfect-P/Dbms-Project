@@ -56,7 +56,7 @@ create table accounts(
 
 show tables;
 
-select * from employees;
+select * from employees ;
 select * from departments;
 select * from positions;
 select * from educations;
@@ -102,7 +102,7 @@ desc departments;
 insert into departments values ('dept000002', 'phong y tuong', 'ha noi', '0555884831');
 
 desc positions;
-insert into positions values ('pos0000002', 'nhan vien');
+insert into positions values ('pos0000002', 'truong phong');
 
 desc educations;
 insert into educations values ('edu0000004', 'Cu nhan', 'quan ly nhan su','xuat sac');

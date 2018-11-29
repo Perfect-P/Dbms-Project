@@ -1,44 +1,53 @@
 extends ../layout/common.pug
 block content
 
-	h1 Departments
-
-	nav.navbar.navbar-expand-lg.navbar-light.bg-light
-		button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
-			span.navbar-toggler-icon
-		#navbarSupportedContent.collapse.navbar-collapse
-			ul.navbar-nav.mr-auto
-				li.nav-item
-					a.i.fas.fa-home.nav-link(href="/")
-				li.nav-item
-					a.nav-link(href="/departments/create") New Department
-			
-			form.form-inline.my-2.my-lg-0(action="/departments/search", method="GET")
+		div.row.mt-2
+			h1.col-sm Departments
+			form.col-sm.form-inline.d-flex.justify-content-end(action="/departments/search", method="GET")
 				input.form-control.mr-sm-2(type="text", name="q")
-				button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+				button.btn.btn-outline-success(type='submit') Search
+		
+		div.row
+			ul.nav.flex-column.col-sm-2
+				li.nav-item
+					a.btn.nav-link.active(href='#') Active
+				li.nav-item
+					a.btn.nav-link(href='#') Link
+				li.nav-item
+					a.btn.nav-link(href='#') Links
+				li.nav-item
+					a.btn.nav-link(href="/departments/create") New
 
-
-	table.table
-			tr
-				th ID
-				th Name
-				th Address
-				th Phone
-				th
-			each dept in depts
+			table.table.col-sm-9
 				tr
-					td=dept.dept_id
-					td=dept.dept_name
-					td=dept.dept_address
-					td=dept.dept_phone
-					td
-						.from-group
-						.dropdown
-							button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-								|	Option
-							.dropdown-menu(aria-labelledby='dropdownMenuButton')
-								a.dropdown-item(href="/departments/"+ dept.dept_id) View
-								a.dropdown-item(href="/departments/"+dept.dept_id+"/edit") Edit
-								a.dropdown-item(href="/departments/"+dept.dept_id+"/delete") Delete
-						
-								
+					th ID
+					th Name
+					th Address
+					th Phone
+					th
+				each dept in depts
+					tr
+						td=dept.dept_id
+						td=dept.dept_name
+						td=dept.dept_address
+						td=dept.dept_phone
+						td
+							.from-group
+							.dropdown
+								button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+									|	Option
+								.dropdown-menu(aria-labelledby='dropdownMenuButton')
+									a.dropdown-item(href="/departments/"+ dept.dept_id) View
+									a.dropdown-item(href="/departments/"+dept.dept_id+"/edit") Edit
+									a.dropdown-item(href="/departments/"+dept.dept_id+"/delete") Delete
+
+		nav(aria-label='Page navigation example')
+			ul.pagination
+				if n[0] > 1
+					li.page-item
+						a.page-link(href='?page='+(n[0]-1).toString()) Previous
+				each page in n
+					li.page-item
+						a.page-link(href='?page='+ page)=page
+				li.page-item
+					a.page-link(href='?page='+(current[0]+1).toString()) Next												
