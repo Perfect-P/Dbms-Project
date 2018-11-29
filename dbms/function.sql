@@ -87,3 +87,5 @@ delimiter ;
 
 drop function if exists sum_emp_in_dept;
 select sum_emp_in_dept('Pham Hoang Hao');
+
+
