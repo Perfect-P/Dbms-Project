@@ -2,8 +2,8 @@ extends ../layout/common.pug
 block content
 
 		div.row.mt-2
-			h1.col-sm Education
-			form.col-sm.form-inline.d-flex.justify-content-end(action="/education/search", method="GET")
+			h1.col-sm Positions
+			form.col-sm.form-inline.d-flex.justify-content-end(action="/position/search", method="GET")
 				input.form-control.mr-sm-2(type="text", name="q")
 				button.btn.btn-outline-success(type='submit') Search
 		
@@ -20,14 +20,12 @@ block content
 
 			table.table.col-sm-9
 				tr
+					th ID
 					th Name
-					th Position
-					th inauguration
-				each tk in tiwo
+				each pos in positions
 					tr
-						td=tk.emp_name
-						td=tk.pos_name
-						td=tk.inauguration
+						td=pos.pos_id
+						td=pos.pos_name
 						
 		nav(aria-label='Page navigation example')
 			ul.pagination

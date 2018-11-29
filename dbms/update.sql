@@ -2,24 +2,38 @@ use dbms;
 #### update
 delimiter :)
 create procedure update_emp(v_id char(10), v_name varchar(50), v_address varchar(100),v_gender char(1),
- v_birthday date, v_phone numeric(11,0), v_accname varchar(60), v_sal numeric(10, 5))
+ v_birthday date, v_phone numeric(11,0), v_sal numeric(10, 5), v_edu varchar(50), v_pos varchar(50))
 begin
-	update employees set
+	update employees join educations on employees.edu_id=educations.edu_id join positions on employees.pos_id = positions.pos_id
+    set
     emp_name = v_name,
     emp_address = v_address,
     emp_gender = v_gender,
     emp_dob = v_birthday,
     emp_phone = v_phone,
-	acc_name = v_accname,
-    sal_lvl = v_sal
+    sal_lvl = v_sal,
+    edu_name = v_edu,
+    pos_name = v_pos
     where emp_id = v_id;
 end:)
 delimiter ;
 
 drop procedure update_emp;
-call update_emp('emp0000001','Le Phuc Loc', 'Can Tho', 'M', '1998-11-17','0909090909','lploc');
+call update_emp('emp0000001','Le Phuc Loc', 'Can Tho', 'M', '1998-11-17','0913245687',2,'thac si','pho giam doc');
 
 
+-- test update join
+delimiter :)
+create procedure update_test(v_emp_id char(10), v_edu_name varchar(50))
+begin
+	update employees join educations on employees.edu_id = educations.edu_id
+    set
+    edu_name = v_edu_name
+    where emp_id =v_emp_id;
+end:)
+delimiter ;
+drop procedure update_test;
+call update_test('emp0000001', 'thac si');
 #### DEPARTMENTS 2
 delimiter :)
 create procedure update_dept(v_id char(10), v_name varchar(30), v_address varchar(50), v_phone numeric(11,0))
@@ -49,7 +63,7 @@ end:)
 delimiter ;
 
 drop procedure update_edu;
-call update_edu('edu0000001', 'tien si', 'CNTT');
+call update_edu('edu0000001', 'cu nhan', 'CNTT');
 select * from educations;
 
 #### POSITIONS 4

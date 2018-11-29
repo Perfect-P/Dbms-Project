@@ -26,7 +26,15 @@ block content
 
 			.form-group
 				lablel(for="birthday") Birthday
-				input#birthday.form-control(type="date", name="birthday", value='1998-3-14')
+				input#birthday.form-control(type="text", name="birthday", value=emp.emp_dob)
+
+			.form-group
+				lablel(for="education") Education
+				input#education.form-control(type="text", name="education", value=emp.edu_id)
+
+			.form-group
+				lablel(for="position") Position
+				input#position.form-control(type="text", name="position", value=emp.pos_id)
 
 			.form-group
 				lablel(for="phone") Phone
