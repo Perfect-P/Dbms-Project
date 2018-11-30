@@ -23,17 +23,11 @@ block content
 					th Name
 					th Major
 					th Evaluation
-<<<<<<< HEAD
-=======
-					th
->>>>>>> 996509492f183f8b7a355eb54752caded985eaa5
 				each edu in education
 					tr
 						td=edu.edu_name
 						td=edu.edu_major
 						td=edu.edu_evaluation
-<<<<<<< HEAD
-=======
 						td
 							.from-group
 								.dropdown
@@ -42,7 +36,6 @@ block content
 									.dropdown-menu(aria-labelledby='dropdownMenuButton')
 										a.dropdown-item(href="/education/"+edu.edu_id+"/edit") Edit
 										a.dropdown-item(href="/education/"+edu.edu_id+"/delete") Delete
->>>>>>> 996509492f183f8b7a355eb54752caded985eaa5
 
 		nav(aria-label='Page navigation example')
 			ul.pagination

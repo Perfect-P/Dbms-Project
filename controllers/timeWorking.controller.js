@@ -69,7 +69,6 @@ module.exports.delete = function (req, res) {
 
 module.exports.edit = function(req,res){ // goi procedure trong mysql va chinh sua database
     var id = req.params.id.split('+');
-    console.log(id);
     connection.query("SELECT * FROM time_working where emp_id = ? and pos_id=?",
         [id[0],id[1]],
         function (err, result, fields) {

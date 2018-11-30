@@ -2,11 +2,8 @@ extends ../layout/common.pug
 block content
 
 		div.row.mt-2
-<<<<<<< HEAD
-			h1.col-sm Education
-=======
+
 			h1.col-sm Tiwo
->>>>>>> 996509492f183f8b7a355eb54752caded985eaa5
 			form.col-sm.form-inline.d-flex.justify-content-end(action="/education/search", method="GET")
 				input.form-control.mr-sm-2(type="text", name="q")
 				button.btn.btn-outline-success(type='submit') Search
@@ -15,26 +12,7 @@ block content
 			ul.nav.flex-column.col-sm-2
 				li.nav-item
 					a.btn.nav-link.active(href='#') Active
-<<<<<<< HEAD
-				li.nav-item
-					a.btn.nav-link(href='#') Link
-				li.nav-item
-					a.btn.nav-link(href='#') Links
-				li.nav-item
-					a.btn.nav-link(href="/education/create") New
 
-			table.table.col-sm-9
-				tr
-					th Name
-					th Position
-					th inauguration
-				each tk in tiwo
-					tr
-						td=tk.emp_name
-						td=tk.pos_name
-						td=tk.inauguration
-						
-=======
 				li.nav-item
 					a.btn.nav-link(href='#') Link
 				li.nav-item
@@ -63,8 +41,6 @@ block content
 										a.dropdown-item(href="/timeWorking/"+tk.emp_id+'+'+tk.pos_id+"/edit") Edit
 										a.dropdown-item(href="/timeWorking/"+tk.emp_id+'+'+tk.pos_id+"/delete") Delete
 						
-
->>>>>>> 996509492f183f8b7a355eb54752caded985eaa5
 		nav(aria-label='Page navigation example')
 			ul.pagination
 				if n[0] > 1

@@ -29,8 +29,7 @@ module.exports.postCreate = function(req,res){// them nhan vien vao
      		console.log(err);
      	}
     	res.redirect('/education');
-<<<<<<< HEAD
-=======
+
     });
 }
 module.exports.edit = function(req,res){ // goi procedure trong mysql va chinh sua database
@@ -59,7 +58,6 @@ module.exports.delete = function(req,res){
     connection.query('call delete_edu(?)',id,function(err,result,fields){
         if(err) throw err;
         res.redirect('/education');
->>>>>>> 996509492f183f8b7a355eb54752caded985eaa5
     });
 }
 
@@ -76,9 +74,9 @@ module.exports.edit = function (req, res) { // goi procedure trong mysql va chin
 }
 
 module.exports.postEdit = function (req, res) {// submit thong tin da chinh sua
-	var lvl = req.params.id;
-	connection.query('call update_edu(?,?,?)',
-		[req.body.id, req.body.name, req.body.major],
+	var id = req.params.id;
+	connection.query('call update_edu(?,?,?,?)',
+		[req.body.id, req.body.name, req.body.major, req.body.evaluation],
 		function (err, result, fields) {
 			if (err) console.log(err);
 			res.redirect('/education');

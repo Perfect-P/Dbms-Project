@@ -64,11 +64,12 @@ select * from departments;
 #### EDUCATIONS 3
 desc educations;
 delimiter :)
-create procedure update_edu(v_id char(10), v_name varchar(50), v_major varchar(50))
+create procedure update_edu(v_id char(10), v_name varchar(50), v_major varchar(50), v_evaluation varchar(50))
 begin
 	update educations set
     edu_name = v_name,
-    edu_major = v_major
+    edu_major = v_major,
+    edu_evaluation = v_evaluation
     where edu_id = v_id;
 end:)
 delimiter ;

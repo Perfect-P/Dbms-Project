@@ -16,26 +16,17 @@ block content
 				li.nav-item
 					a.btn.nav-link(href='#') Links
 				li.nav-item
-<<<<<<< HEAD
-					a.btn.nav-link(href="/education/create") New
-=======
 					a.btn.nav-link(href="/position/create") New
->>>>>>> 996509492f183f8b7a355eb54752caded985eaa5
+
 
 			table.table.col-sm-9
 				tr
 					th ID
 					th Name
-<<<<<<< HEAD
-=======
-					th
->>>>>>> 996509492f183f8b7a355eb54752caded985eaa5
 				each pos in positions
 					tr
 						td=pos.pos_id
 						td=pos.pos_name
-<<<<<<< HEAD
-=======
 						td
 							.from-group
 								.dropdown
@@ -44,7 +35,7 @@ block content
 									.dropdown-menu(aria-labelledby='dropdownMenuButton')
 										a.dropdown-item(href="/position/"+pos.pos_id+"/edit") Edit
 										a.dropdown-item(href="/position/"+pos.pos_id+"/delete") Delete
->>>>>>> 996509492f183f8b7a355eb54752caded985eaa5
+
 						
 		nav(aria-label='Page navigation example')
 			ul.pagination

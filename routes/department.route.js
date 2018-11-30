@@ -8,6 +8,7 @@ router.get('/create', controller.create); // chuyen toi module.exports.create
 router.get('/:id/edit', controller.edit); //edit
 router.post('/:id/edit',controller.postEdit); // gui edit len db
 router.get('/:id/delete', controller.delete);//delete
+router.get('/:id', controller.getID); // view dept 
 
 
 module.exports =router;
