@@ -1,0 +1,16 @@
+extends ../layout/common.pug
+block content
+
+	h1 Create Education
+
+	each pos in positions
+		form(action="/position/create", method="POST")
+			.form-group
+				label(for="id") ID
+				input#id.form-control(type="text", name="id", value=pos.pos_id)
+
+			.form-group
+				label(for="name") Name
+				input#name.form-control(type="text", name="name", value=pos.pos_name)
+
+			button.btn.btn-primary Create

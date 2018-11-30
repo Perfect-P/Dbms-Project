@@ -2,7 +2,7 @@ extends ../layout/common.pug
 block content
 
 		div.row.mt-2
-			h1.col-sm Education
+			h1.col-sm Tiwo
 			form.col-sm.form-inline.d-flex.justify-content-end(action="/education/search", method="GET")
 				input.form-control.mr-sm-2(type="text", name="q")
 				button.btn.btn-outline-success(type='submit') Search
@@ -23,12 +23,23 @@ block content
 					th Name
 					th Position
 					th inauguration
+					th
 				each tk in tiwo
 					tr
 						td=tk.emp_name
 						td=tk.pos_name
 						td=tk.inauguration
+						td
+							.from-group
+								.dropdown
+									button#dropdownMenuButton.btn.btn-outline-primary.dropdown-toggle(
+									type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+										|	Option
+									.dropdown-menu(aria-labelledby='dropdownMenuButton')
+										a.dropdown-item(href="/timeWorking/"+tk.emp_id+'+'+tk.pos_id+"/edit") Edit
+										a.dropdown-item(href="/timeWorking/"+tk.emp_id+'+'+tk.pos_id+"/delete") Delete
 						
+
 		nav(aria-label='Page navigation example')
 			ul.pagination
 				if n[0] > 1

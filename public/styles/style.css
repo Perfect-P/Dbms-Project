@@ -24,15 +24,47 @@ body{
 	font-size: 1.2em;
 	justify-content: center;
 	flex-direction: column;
+	margin: 10px;
 }
-.phh{
-
+.text-info{
+	flex-basis: 200px;
+	flex-grow: 1;
+	position: relative;
+	left: 150px;
+	top:20px;
 }
-.lpl{
+.image-info{
+	flex-basis: 200px;
+	flex-grow: 1;
+	position: relative;
+	left: 100px;
 }
 .author-info{
 	display: flex;
+	flex-direction: row;
+	margin: 10px;
 }
 .content{
 	display: flex;
+}
+.content-swap{
+}
+.content-swap .text-info{
+	order: 1;
+}
+.image-modify{
+	height: 180px;
+	width: 270px;
+}
+.nodejs-info{
+	display: flex;
+}
+.image-icon{
+	height: 90px;
+	width: 90px;
+}
+
+.nodejs-intro{
+	position: relative;
+	left:40%;
 }

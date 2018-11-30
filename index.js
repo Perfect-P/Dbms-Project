@@ -18,6 +18,7 @@ var salRoute = require('./routes/salary.route');
 var posRoute = require('./routes/position.route');
 var eduRoute = require('./routes/education.route');
 var tiWoRoute =require('./routes/timeWorking.route');
+var moreRoute = require('./routes/more.route')
 
 app.use('/employees', empRoute);
 app.use('/departments', deptRoute);
@@ -25,6 +26,7 @@ app.use('/salary',salRoute);
 app.use('/position', posRoute);
 app.use('/education',eduRoute);
 app.use('/timeWorking',tiWoRoute);
+app.use('/more', moreRoute);
 
 app.use(express.static(__dirname + "/public"));
 

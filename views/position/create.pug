@@ -3,7 +3,7 @@ block content
 
 	h1 Create Education
 
-	form(action="/education/create", method="POST")
+	form(action="/position/create", method="POST")
 		.form-group
 			label(for="id") ID
 			input#id.form-control(type="text", name="id")
@@ -11,13 +11,5 @@ block content
 		.form-group
 			label(for="name") Name
 			input#name.form-control(type="text", name="name")
-
-		.form-group
-			lablel(for="major") Major
-			input#major.form-control(type="text", name="major")
-		
-		.form-group
-			lablel(for="evaluation") Evaluation
-			input#evaluation.form-control(type="text", name="evaluation")
 
 		button.btn.btn-primary Create

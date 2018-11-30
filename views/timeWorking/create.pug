@@ -1,0 +1,19 @@
+extends ../layout/common.pug
+block content
+
+	h1 Create Time Working
+
+	form(action="/position/create", method="POST")
+		.form-group
+			label(for="id") ID
+			input#id.form-control(type="text", name="id")
+
+		.form-group
+			label(for="name") Name
+			input#name.form-control(type="text", name="name")
+
+		.form-group
+			label(for="name") Date
+			input#name.form-control(type="date", name="date")
+
+		button.btn.btn-primary Create

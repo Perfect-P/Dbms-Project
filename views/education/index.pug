@@ -23,11 +23,20 @@ block content
 					th Name
 					th Major
 					th Evaluation
+					th
 				each edu in education
 					tr
 						td=edu.edu_name
 						td=edu.edu_major
 						td=edu.edu_evaluation
+						td
+							.from-group
+								.dropdown
+									button#dropdownMenuButton.btn.btn-outline-primary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+										|	Option
+									.dropdown-menu(aria-labelledby='dropdownMenuButton')
+										a.dropdown-item(href="/education/"+edu.edu_id+"/edit") Edit
+										a.dropdown-item(href="/education/"+edu.edu_id+"/delete") Delete
 
 		nav(aria-label='Page navigation example')
 			ul.pagination
