@@ -21,14 +21,14 @@ block content
 			table.table.col-sm-9
 				tr
 					th Name
-					th Position
-					th inauguration
-				each tk in tiwo
+					th Major
+					th Evaluation
+				each edu in education
 					tr
-						td=tk.emp_name
-						td=tk.pos_name
-						td=tk.inauguration
-						
+						td=edu.edu_name
+						td=edu.edu_major
+						td=edu.edu_evaluation
+
 		nav(aria-label='Page navigation example')
 			ul.pagination
 				if n[0] > 1

@@ -6,15 +6,21 @@ var connection = mysql.createConnection({ // ket noi mysql
 });
 
 module.exports.index = function(req,res){
+	var page = parseInt(req.query.page) || 1;
+    var currentPage =[page];
+    var pages =[page,page+1,page+2];
+    var perPage =5;
+    var start = (page -1)*perPage;
+    var end = page*perPage;
 	var sql = "SELECT * from positions";
 	connection.query(sql,function(err,result,fields){
 		if(err) throw err
-		res.render('positions/index', {position: result});
+		res.render('position/index', { positions: result.splice(start, end), n: pages, current: currentPage });
 	});
 }
 
 module.exports.create = function (req, res) {  // render trang create
-	res.render('positions/create');
+	res.render('position/create');
 }
 
 module.exports.postCreate = function (req, res) {// them nhan vien vao
@@ -24,7 +30,7 @@ module.exports.postCreate = function (req, res) {// them nhan vien vao
 			if (err) {
 				console.log(err);
 			}
-			res.redirect('/positions');
+			res.redirect('/position');
 		});
 }
 
@@ -36,7 +42,7 @@ module.exports.edit = function (req, res) { // goi procedure trong mysql va chin
 			if (err) {
 				console.log(err);
 			}
-			res.render('positions/edit', { position: result });
+			res.render('position/edit', { position: result });
 		});
 }
 
@@ -46,7 +52,7 @@ module.exports.postEdit = function (req, res) {// submit thong tin da chinh sua
 		[req.body.id, req.body.name],
 		function (err, result, fields) {
 			if (err) console.log(err);
-			res.redirect('/positions');
+			res.redirect('/position');
 		});
 }
 
@@ -54,6 +60,6 @@ module.exports.delete = function (req, res) {
 	var id = req.params.id;
 	connection.query('call delete_pos(?)', id, function (err, result, fields) {
 		if (err) throw err;
-		res.redirect('/positions');
+		res.redirect('/position');
 	});
 }

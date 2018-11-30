@@ -5,24 +5,30 @@ var connection = mysql.createConnection({ // ket noi mysql
 	database:"dbms"
 });
 module.exports.index = function(req,res){
+    var page = parseInt(req.query.page) || 1;
+    var currentPage =[page];
+    var pages =[page,page+1,page+2];
+    var perPage =5;
+    var start = (page -1)*perPage;
+    var end = page*perPage;
 	var sql = "SELECT * from educations";
 	connection.query(sql,function(err,result,fields){
-		res.render('educations/index',{education: result});
+		res.render('education/index',{education: result.splice(start,end), n: pages, current: currentPage});
 	});
 }
 
 module.exports.create = function(req,res){  // render trang create
-    res.render('educations/create');
+    res.render('education/create');
 }
 
 module.exports.postCreate = function(req,res){// them nhan vien vao
-    connection.query('insert into educations values(?,?,?)',
-    [req.body.id,req.body.name,req.body.major],
+    connection.query('insert into educations values(?,?,?,?)',
+		[req.body.id, req.body.name, req.body.major, req.body.evaluation],
     	function(err,result,next){
      	if(err){
      		console.log(err);
      	}
-    	res.redirect('/educations');
+    	res.redirect('/education');
     });
 }
 
@@ -34,7 +40,7 @@ module.exports.edit = function (req, res) { // goi procedure trong mysql va chin
 			if (err) {
 				console.log(err);
 			}
-			res.render('educations/edit', { education: result });
+			res.render('education/edit', { education: result });
 		});
 }
 
@@ -44,7 +50,7 @@ module.exports.postEdit = function (req, res) {// submit thong tin da chinh sua
 		[req.body.id, req.body.name, req.body.major],
 		function (err, result, fields) {
 			if (err) console.log(err);
-			res.redirect('/educations');
+			res.redirect('/education');
 		});
 }
 
@@ -52,6 +58,6 @@ module.exports.delete = function (req, res) {
 	var id = req.params.id;
 	connection.query('call delete_edu(?)', id, function (err, result, fields) {
 		if (err) throw err;
-		res.redirect('/educations');
+		res.redirect('/education');
 	});
 }

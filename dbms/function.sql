@@ -88,4 +88,9 @@ delimiter ;
 drop function if exists sum_emp_in_dept;
 select sum_emp_in_dept('Pham Hoang Hao');
 
+# number emp co bang xuat sac
+
+# so nhan vien co thoi gian lam viec nhiu hon n
+
+# nhan vien co ngay sinh trong thang nao do de to chuc sinh nhat
 

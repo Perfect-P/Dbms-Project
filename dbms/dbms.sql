@@ -56,7 +56,7 @@ create table accounts(
 
 show tables;
 
-select * from employees;
+select * from employees ;
 select * from departments;
 select * from positions;
 select * from educations;
@@ -102,7 +102,7 @@ desc departments;
 insert into departments values ('dept000002', 'phong y tuong', 'ha noi', '0555884831');
 
 desc positions;
-insert into positions values ('pos0000002', 'nhan vien');
+insert into positions values ('pos0000001', 'nhan vien');
 
 desc educations;
 insert into educations values ('edu0000004', 'Cu nhan', 'quan ly nhan su','xuat sac');
@@ -116,8 +116,11 @@ insert into time_working values ('emp0000001', 'pos0000001', now());
 desc accounts;
 insert into accounts values ( 'lephucloc', 'locratladeptrai');
 
+SELECT emp_name,pos_name,inauguration from employees join time_working on employees.emp_id=time_working.emp_id join positions on time_working.pos_id=positions.pos_id;
+
 desc salary;
 
+select * from time_working;
 
 
 
