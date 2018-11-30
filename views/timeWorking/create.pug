@@ -3,17 +3,17 @@ block content
 
 	h1 Create Time Working
 
-	form(action="/position/create", method="POST")
+	form(action="/timeWorking/create", method="POST")
 		.form-group
-			label(for="id") ID
-			input#id.form-control(type="text", name="id")
+			label(for="emp_id") Employees ID
+			input#emp_id.form-control(type="text", name="emp_id")
 
 		.form-group
-			label(for="name") Name
-			input#name.form-control(type="text", name="name")
+			label(for="pos_id") Department ID
+			input#pos_id.form-control(type="text", name="pos_id")
 
 		.form-group
-			label(for="name") Date
-			input#name.form-control(type="date", name="date")
+			label(for="inauguration") Date
+			input#inauguration.form-control(type="date", name="inauguration")
 
 		button.btn.btn-primary Create

@@ -1,0 +1,25 @@
+extends ../layout/layout_more.pug
+block content		
+	h1 Employees with evaluation
+	
+	form(action="/more/emp_eval", method="GET")
+		.form-group
+			label(for="emp_eval") Evaluation
+			input#emp_eval.form-control(type="text", name="emp_eval")
+		.form-group
+			label(for="#") Result
+			table.table
+				tr
+					th Name
+					th Evaluation
+					th ID
+					th
+				each emp in emps
+					tr
+						td=emp.emp_name
+						td=emp.edu_evaluation
+						td=emp.emp_id
+							
+						
+
+		button.btn.btn-primary Show

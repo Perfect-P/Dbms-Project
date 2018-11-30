@@ -5,12 +5,10 @@ block content
 
 	each edu in education
 		form(action="/education/"+edu.edu_id+"/edit", method="POST")
-<<<<<<< HEAD
-=======
+
 			.form-group
 				label(for="id") ID
 				input#id.form-control(type="text", name="id",value=edu.edu_id)
->>>>>>> 7c2aced2217daa26754383083611bdcd89577e93
 
 			.form-group
 				label(for="name") Name
@@ -24,8 +22,6 @@ block content
 				lablel(for="evaluation") Evaluation
 				input#evaluation.form-control(type="text", name="evaluation", value=edu.edu_evaluation)
 
-<<<<<<< HEAD
-			button.btn.btn-primary Save
-=======
+
 			button.btn.btn-primary Update
->>>>>>> 7c2aced2217daa26754383083611bdcd89577e93
+

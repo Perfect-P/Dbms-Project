@@ -1,7 +1,7 @@
 extends ../layout/common.pug
 block content
 
-	h1 Create Education
+	h1 Edit Position
 
 	each pos in positions
 		form(action="/position/"+pos.pos_id+"/edit", method="POST")
@@ -13,8 +13,5 @@ block content
 				label(for="name") Name
 				input#name.form-control(type="text", name="name", value=pos.pos_name)
 
-<<<<<<< HEAD
-			button.btn.btn-primary Save
-=======
 			button.btn.btn-primary Update
->>>>>>> 7c2aced2217daa26754383083611bdcd89577e93
+

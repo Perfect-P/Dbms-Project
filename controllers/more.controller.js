@@ -45,6 +45,17 @@ module.exports.sum_emp = function (req, res) {
 		});
 }
 
+module.exports.emp_eval = function (req, res) {
+	connection.query('call emp_edu(?)',
+		[req.query.emp_eval],
+		function (err, result, next) {
+			if (err) {
+				console.log(err);
+			}
+			res.render('more/emp_eval', { emps: result });
+		});
+}
+
 module.exports.test = function(req,res){
 	res.render('more/test');
 }
