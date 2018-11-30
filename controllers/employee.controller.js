@@ -2,8 +2,7 @@ var date = require('date-and-time');
 var mysql =require('mysql');
 var connection = mysql.createConnection({ // ket noi mysql
   host: "localhost",
-	user: "student",
-	password:"student",
+	user: "root",
   	database:"dbms",
   	multipleStatements: true
 });
@@ -51,10 +50,17 @@ module.exports.create = function(req,res){  // render trang create
 
 
 module.exports.postCreate = function(req,res){// them nhan vien vao
-    connection.query('call add_emp(?,?,?,?,?,?,?,?)',
-    [req.body.id,req.body.name,req.body.address,req.body.gender,
-    req.body.birthday,parseFloat(req.body.phone),req.body.salary,
-    req.body.education,req.body.position],
+    connection.query('call add_emp(?,?,?,?,?,?,?,?,?)',
+	[	req.body.id,
+		req.body.name,
+		req.body.address,
+		req.body.gender,
+		req.body.birthday,
+		parseFloat(req.body.phone),
+		req.body.salary,
+		req.body.department,
+		req.body.education,
+		req.body.position],
     	function(err,result,next){
      	if(err){
      		console.log(err);
@@ -93,8 +99,19 @@ module.exports.edit = function(req,res){ // goi procedure trong mysql va chinh s
 
 module.exports.postEdit = function(req,res){// submit thong tin da chinh sua
 	var id =req.params.id;
-	connection.query('call update_emp(?,?,?,?,?,?,?)',
-	[id,req.body.name,req.body.address,req.body.gender,req.body.birthday,parseFloat(req.body.phone),req.body.username],
+	connection.query('call update_emp(?,?,?,?,?,?,?,?,?,?,?)',
+	[	id,
+		req.body.name,
+		req.body.address,
+		req.body.gender,
+		req.body.birthday,
+		parseFloat(req.body.phone),
+		rep.body.department,
+		req.body.position,
+		req.body.education,
+		req.body.username,
+		req.body.salary
+		],
 		function(err,result,fields){
 		if(err) console.log(err)
 		res.redirect('/employees')

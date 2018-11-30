@@ -9,11 +9,15 @@ block content
 				button.btn.btn-outline-success(type='submit') Search
 		
 
+<<<<<<< HEAD
 			table.table
+=======
+
+			table.table.col-sm-9
+>>>>>>> 7c2aced2217daa26754383083611bdcd89577e93
 				tr
 					th ID
 					th Name
-					th
 				each pos in positions
 					tr
 						td=pos.pos_id
@@ -26,6 +30,7 @@ block content
 									.dropdown-menu(aria-labelledby='dropdownMenuButton')
 										a.dropdown-item(href="/position/"+pos.pos_id+"/edit") Edit
 										a.dropdown-item(href="/position/"+pos.pos_id+"/delete") Delete
+
 						
 		nav(aria-label='Page navigation example')
 			ul.pagination

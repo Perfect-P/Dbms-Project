@@ -5,10 +5,12 @@ block content
 		div.row.mt-2
 			h1.col-sm-2 Employee
 			a.col-sm-1(href="/employees/create") New
+
 			form.col-sm.form-inline.d-flex.justify-content-end(action="/employees/search", method="GET")
 				input.form-control.mr-sm-2(type="text", name="q")
 				button.btn.btn-outline-success(type='submit') Search
 		
+
 		
 
 		table.table
@@ -31,7 +33,7 @@ block content
 									a.dropdown-item(href="/employees/"+emp.emp_id) View
 									a.dropdown-item(href="/employees/"+emp.emp_id+"/edit") Edit
 									a.dropdown-item(href="/employees/"+emp.emp_id+"/delete") Delete
-		
+
 		nav(aria-label='Page navigation example')
 			ul.pagination
 				if n[0] > 1

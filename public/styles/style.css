@@ -24,6 +24,19 @@ body{
 	font-size: 1.2em;
 	justify-content: center;
 	flex-direction: column;
+<<<<<<< HEAD
+}
+.phh{
+
+}
+.lpl{
+}
+.author-info{
+	display: flex;
+}
+.content{
+	display: flex;
+=======
 	margin: 10px;
 }
 .text-info{
@@ -67,4 +80,5 @@ body{
 .nodejs-intro{
 	position: relative;
 	left:40%;
+>>>>>>> 996509492f183f8b7a355eb54752caded985eaa5
 }

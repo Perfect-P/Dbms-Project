@@ -3,7 +3,11 @@ block content
 
 	h1 Edit Time Working
 	each tk in tiwo
+<<<<<<< HEAD
 		form(action="/timeWorking/"+tk.emp_id+"+"+tk.pos_id+"/edit", method="POST")
+=======
+		form(action="/timeWorking/" + tk.emp_id + tk.pos_id + "/edit", method="POST")
+>>>>>>> 7c2aced2217daa26754383083611bdcd89577e93
 			.form-group
 				label(for="emp_id") emp Name
 				input#emp_id.form-control(type="text", name="emp_id",value=tk.emp_id)

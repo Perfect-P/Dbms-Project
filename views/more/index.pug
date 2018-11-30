@@ -1,22 +1,55 @@
 extends ../layout/common.pug
 block content
 	h1 Function
-
-	div.row
-			ul.nav.flex-column.col-sm-2
-				li.nav-item
-					a.btn.nav-link.active(href='#') Active
-				li.nav-item
-					a.btn.nav-link(href='#') Link
-				li.nav-item
-					a.btn.nav-link(href='#') Links
-
-			div.col-sm-9
-				.form-group
-					label(for='comment') Input:
-					textarea#comment.form-control(rows='5')
-
-				.form-group
-					label Result
-					text.form-control(row='5')
 						
+	
+	.row
+		.col-3
+			#v-pills-tab.nav.flex-column.nav-pills(role='tablist', aria-orientation='vertical')
+				a#v-pills-home-tab.nav-link.active(data-toggle='pill', href='#v-pills-home', role='tab', aria-controls='v-pills-home', aria-selected='true') Home
+				a#v-pills-profile-tab.nav-link(data-toggle='pill', href='#v-pills-profile', role='tab', aria-controls='v-pills-profile', aria-selected='false') Profile
+				a#v-pills-messages-tab.nav-link(data-toggle='pill', href='#v-pills-messages', role='tab', aria-controls='v-pills-messages', aria-selected='false') Messages
+				a#v-pills-settings-tab.nav-link(data-toggle='pill', href='#v-pills-settings', role='tab', aria-controls='v-pills-settings', aria-selected='false') Settings
+		.col-9
+			#v-pills-tabContent.tab-content
+				#v-pills-home.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='v-pills-home-tab') 
+					h1 Days Worked 
+						form(action="/more/index", method="POST")
+							.form-group
+								label(for="id") Employees ID
+								input#name.form-control(type="text", name="id")
+							.form-group
+								label Result
+								text.form-control(row='5') 
+							button.btn.btn-primary Create
+
+				#v-pills-profile.tab-pane.fade(role='tabpanel', aria-labelledby='v-pills-profile-tab') 
+						h1 Days  
+						form(action="/more", method="POST")
+							.form-group
+								label(for="id") Employees ID
+								input#name.form-control(type="text", name="id")
+							.form-group
+								label Result
+								text.form-control(row='5')
+							button.btn.btn-primary Create
+				#v-pills-messages.tab-pane.fade(role='tabpanel', aria-labelledby='v-pills-messages-tab') 
+						h1  Worked 
+						form(action="/more", method="POST")
+							.form-group
+								label(for="id") Employees ID
+								input#name.form-control(type="text", name="id")
+							.form-group
+								label Result
+								text.form-control(row='5')
+							button.btn.btn-primary Create
+				#v-pills-settings.tab-pane.fade(role='tabpanel', aria-labelledby='v-pills-settings-tab') 
+						h1 Days asas 
+							form(action="/more", method="POST")
+								.form-group
+									label(for="id") Employees ID
+									input#name.form-control(type="text", name="id")
+								.form-group
+									label Result
+									text.form-control(row='5')
+								button.btn.btn-primary Create

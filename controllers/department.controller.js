@@ -1,8 +1,7 @@
 var mysql =require('mysql');
 var connection = mysql.createConnection({ // ket noi mysql
 	host: "localhost",
-	user: "student",
-	password: "student",
+	user: "root",
 	database:"dbms"
 });
 
@@ -82,4 +81,18 @@ module.exports.delete = function(req,res){
 		if(err) throw err;
 		res.redirect('/departments');
 	});
+}
+
+
+module.exports.getID = function (req, res) { // view employee
+	var id = req.params.id;
+	var sql = "SELECT * FROM departments where dept_id = ?"
+	connection.query(sql,
+		id,
+		function (err, results, fields) {
+			if (err) {
+				console.log(err);
+			}
+			res.render('departments/view', { depts: results });
+		});
 }
