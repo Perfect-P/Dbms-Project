@@ -24,6 +24,7 @@ body{
 	font-size: 1.2em;
 	justify-content: center;
 	flex-direction: column;
+<<<<<<< HEAD
 }
 .phh{
 
@@ -35,4 +36,49 @@ body{
 }
 .content{
 	display: flex;
+=======
+	margin: 10px;
+}
+.text-info{
+	flex-basis: 200px;
+	flex-grow: 1;
+	position: relative;
+	left: 150px;
+	top:20px;
+}
+.image-info{
+	flex-basis: 200px;
+	flex-grow: 1;
+	position: relative;
+	left: 100px;
+}
+.author-info{
+	display: flex;
+	flex-direction: row;
+	margin: 10px;
+}
+.content{
+	display: flex;
+}
+.content-swap{
+}
+.content-swap .text-info{
+	order: 1;
+}
+.image-modify{
+	height: 180px;
+	width: 270px;
+}
+.nodejs-info{
+	display: flex;
+}
+.image-icon{
+	height: 90px;
+	width: 90px;
+}
+
+.nodejs-intro{
+	position: relative;
+	left:40%;
+>>>>>>> 996509492f183f8b7a355eb54752caded985eaa5
 }

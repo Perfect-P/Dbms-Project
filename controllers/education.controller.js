@@ -29,6 +29,37 @@ module.exports.postCreate = function(req,res){// them nhan vien vao
      		console.log(err);
      	}
     	res.redirect('/education');
+<<<<<<< HEAD
+=======
+    });
+}
+module.exports.edit = function(req,res){ // goi procedure trong mysql va chinh sua database
+    var id = req.params.id;
+    connection.query("SELECT * FROM educations where edu_id = ?",
+        id, 
+        function (err, result, fields) {
+        if (err){
+            console.log(err);
+        }
+        res.render('education/edit',{education: result});
+    });
+}
+module.exports.postEdit = function(req,res){// submit thong tin da chinh sua
+    var id =req.params.id;
+    connection.query('call update_edu(?,?,?,?)',
+    [id,req.body.name,req.body.major,req.body.evaluation],
+        function(err,result,fields){
+        if(err) console.log(err)
+        res.redirect('/education')
+    });
+}
+
+module.exports.delete = function(req,res){
+    var id =req.params.id;
+    connection.query('call delete_edu(?)',id,function(err,result,fields){
+        if(err) throw err;
+        res.redirect('/education');
+>>>>>>> 996509492f183f8b7a355eb54752caded985eaa5
     });
 }
 
