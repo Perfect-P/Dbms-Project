@@ -3,11 +3,17 @@ extends ../layout/common.pug
 block content
 
 		div.row.mt-2
+<<<<<<< HEAD
 			h1.col-sm Employee
+=======
+			h1.col-sm-2 Employee
+			a.col-sm-1(href="/employees/create") New
+>>>>>>> 996509492f183f8b7a355eb54752caded985eaa5
 			form.col-sm.form-inline.d-flex.justify-content-end(action="/employees/search", method="GET")
 				input.form-control.mr-sm-2(type="text", name="q")
 				button.btn.btn-outline-success(type='submit') Search
 		
+<<<<<<< HEAD
 		div.row
 			ul.nav.flex-column.col-sm-2
 				li.nav-item
@@ -40,6 +46,31 @@ block content
 										a.dropdown-item(href="/employees/"+emp.emp_id+"/edit") Edit
 										a.dropdown-item(href="/employees/"+emp.emp_id+"/delete") Delete
 		
+=======
+		
+
+		table.table
+			tr
+				th Name
+				th Address
+				th ID
+				th
+			each emp in emps
+				tr
+					td=emp.emp_name
+					td=emp.emp_address
+					td=emp.emp_id
+					td
+						.from-group
+							.dropdown
+								button#dropdownMenuButton.btn.btn-outline-primary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+									|	Option
+								.dropdown-menu(aria-labelledby='dropdownMenuButton')
+									a.dropdown-item(href="/employees/"+emp.emp_id) View
+									a.dropdown-item(href="/employees/"+emp.emp_id+"/edit") Edit
+									a.dropdown-item(href="/employees/"+emp.emp_id+"/delete") Delete
+		
+>>>>>>> 996509492f183f8b7a355eb54752caded985eaa5
 		nav(aria-label='Page navigation example')
 			ul.pagination
 				if n[0] > 1

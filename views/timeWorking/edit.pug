@@ -1,0 +1,19 @@
+extends ../layout/common.pug
+block content
+
+	h1 Edit Time Working
+	each tk in tiwo
+		form(action="/timeWorking/edit", method="POST")
+			.form-group
+				label(for="emp_id") emp Name
+				input#emp_id.form-control(type="text", name="emp_id",value=tk.emp_id)
+
+			.form-group
+				label(for="pos_id") Pos ID
+				input#pos_id.form-control(type="text", pos_id="name", value=tk.pos_id)
+					
+			.form-group
+				label(for="inauguration") Date
+				input#inauguration.form-control(type="text", name="date",value=tk.inauguration)
+
+			button.btn.btn-primary Create

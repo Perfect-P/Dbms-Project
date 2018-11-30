@@ -1,0 +1,24 @@
+extends ../layout/common.pug
+block content
+
+	h1 Edit Education
+
+	each edu in education
+		form(action="/education/create", method="POST")
+			.form-group
+				label(for="id") ID
+				input#id.form-control(type="text", name="id",value=edu.edu_id)
+
+			.form-group
+				label(for="name") Name
+				input#name.form-control(type="text", name="name",value= edu.edu_name)
+
+			.form-group
+				lablel(for="major") Major
+				input#major.form-control(type="text", name="major",value= edu.edu_major)
+			
+			.form-group
+				lablel(for="evaluation") Evaluation
+				input#evaluation.form-control(type="text", name="evaluation", value=edu.edu_evaluation)
+
+			button.btn.btn-primary Create
