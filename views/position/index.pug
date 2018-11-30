@@ -2,23 +2,14 @@ extends ../layout/common.pug
 block content
 
 		div.row.mt-2
-			h1.col-sm Positions
+			h1 Positions
+			a.btn(href="/position/create") New
 			form.col-sm.form-inline.d-flex.justify-content-end(action="/position/search", method="GET")
 				input.form-control.mr-sm-2(type="text", name="q")
 				button.btn.btn-outline-success(type='submit') Search
 		
-		div.row
-			ul.nav.flex-column.col-sm-2
-				li.nav-item
-					a.btn.nav-link.active(href='#') Active
-				li.nav-item
-					a.btn.nav-link(href='#') Link
-				li.nav-item
-					a.btn.nav-link(href='#') Links
-				li.nav-item
-					a.btn.nav-link(href="/position/create") New
 
-			table.table.col-sm-9
+			table.table
 				tr
 					th ID
 					th Name

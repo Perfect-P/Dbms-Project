@@ -17,6 +17,24 @@ module.exports.index = function(req,res){
 		res.render('education/index',{education: result.splice(start,end), n: pages, current: currentPage});
 	});
 }
+module.exports.search = function(req,res){// tim kiem nhan vien
+    var q =req.query.q;
+    var data;
+    var page = parseInt(req.query.page) || 1;
+    var currentPage =[page];
+    var pages =[page,page+1,page+2];
+    var perPage =4;
+    var start = (page -1)*perPage;
+    var end = page*perPage;
+    connection.query("select * from educations",
+        function(err,result,next){
+        if(err) throw err;
+        data = result.filter(function(edu){
+            return edu.edu_name.toLowerCase().indexOf(q.toLowerCase()) !== -1;
+        });
+        res.render('education/index', {education: data.splice(start,end), n: pages, current: currentPage});
+    });
+}
 
 module.exports.create = function(req,res){  // render trang create
     res.render('education/create');

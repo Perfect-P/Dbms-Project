@@ -2,23 +2,14 @@ extends ../layout/common.pug
 block content
 
 		div.row.mt-2
-			h1.col-sm Departments
+			h1 Departments
+			a.btn(href="/departments/create") New
 			form.col-sm.form-inline.d-flex.justify-content-end(action="/departments/search", method="GET")
 				input.form-control.mr-sm-2(type="text", name="q")
 				button.btn.btn-outline-success(type='submit') Search
-		
-		div.row
-			ul.nav.flex-column.col-sm-2
-				li.nav-item
-					a.btn.nav-link.active(href='#') Active
-				li.nav-item
-					a.btn.nav-link(href='#') Link
-				li.nav-item
-					a.btn.nav-link(href='#') Links
-				li.nav-item
-					a.btn.nav-link(href="/departments/create") New
+			
 
-			table.table.col-sm-9
+			table.table
 				tr
 					th ID
 					th Name
@@ -37,7 +28,6 @@ block content
 								button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
 									|	Option
 								.dropdown-menu(aria-labelledby='dropdownMenuButton')
-									a.dropdown-item(href="/departments/"+ dept.dept_id) View
 									a.dropdown-item(href="/departments/"+dept.dept_id+"/edit") Edit
 									a.dropdown-item(href="/departments/"+dept.dept_id+"/delete") Delete
 

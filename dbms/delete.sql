@@ -1,7 +1,7 @@
 use dbms;
-#----------delete
-#### ACCOUNTS 1
-desc accounts;
+#delete
+
+###### delete accounts
 delimiter :)
 create procedure delete_acc(v_name varchar(60))
 begin
@@ -9,7 +9,7 @@ begin
 end :)
 delimiter ;
 
-#### departments 2
+#### delete departments
 desc departments;
 delimiter :)
 create procedure delete_dept(v_id char(10))
@@ -18,7 +18,7 @@ begin
 end :)
 delimiter ;
 
-#### educations 3
+#### delete education educations
 desc educations;
 delimiter :)
 create procedure delete_edu(v_id char(10))
@@ -27,7 +27,7 @@ begin
 end :)
 delimiter ;
 
-#### employees 4
+#### delete employees
 desc employees;
 delimiter :)
 create procedure delete_emp(v_id char(10))
@@ -36,7 +36,7 @@ begin
 end :)
 delimiter ;
 
-#### positions 5
+#### delete positions
 desc positions;
 delimiter :)
 create procedure delete_pos(v_id char(10))
@@ -45,7 +45,7 @@ begin
 end :)
 delimiter ;
 
-#### salary 6
+#### delete salary
 desc salary;
 delimiter :)
 create procedure delete_sal(v_lvl decimal(10,5))
@@ -55,7 +55,7 @@ end :)
 delimiter ;
 drop procedure delete_sal;
 
-#### time_working
+#### delete time_working
 desc positionstime_working;
 delimiter :)
 create procedure delete_tw(v_emp_id char(10), v_pos_id char(10))

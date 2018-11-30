@@ -4,7 +4,6 @@ var controller = require('../controllers/employee.controller'); // <=> import fi
 var validate = require('../validate/employee.validate');
 
 router.get('/', controller.index); // chuyen toi module.exports.index
-//router.get('/employees', controller.main);
 router.get('/search', controller.search); // chuyen toi module.exports.search
 router.post('/create',validate.postCreate, controller.postCreate); //chuyen toi module.exports.postCreate
 router.get('/create', controller.create); // chuyen toi module.exports.create

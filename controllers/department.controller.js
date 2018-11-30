@@ -18,6 +18,25 @@ module.exports.index = function(req,res){
 		res.render('departments/index',{depts:result.splice(start,end), n: pages, current: currentPage});
 	});
 }
+module.exports.search = function(req,res){// tim kiem nhan vien
+	var q =req.query.q;
+	var data;
+	var page = parseInt(req.query.page) || 1;
+	var currentPage =[page];
+	var pages =[page,page+1,page+2];
+	var perPage =4;
+	var start = (page -1)*perPage;
+	var end = page*perPage;
+	connection.query("select * from departments",
+		function(err,result,next){
+		if(err) throw err;
+		data = result.filter(function(dept){
+			return dept.dept_name.toLowerCase().indexOf(q.toLowerCase()) !== -1;
+		});
+		res.render('departments/index', {depts: data.splice(start,end), n: pages, current: currentPage});
+	});
+}
+
 
 module.exports.create = function(req,res){  // render trang create
     res.render('departments/create');

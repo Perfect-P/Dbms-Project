@@ -12,7 +12,7 @@ block content
 				lablel(for="address") Address
 				input#address.form-control(type="text", name="address",value=emp.emp_address)
 
-			.form-group.d-flex
+			.form-group
 				if emp.emp_gender = 'M'
 					lablel(for="male") Male
 					input#male.form-control(type="radio", name="gender", value ="M",checked ='')

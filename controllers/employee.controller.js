@@ -27,13 +27,19 @@ module.exports.index = function(req,res, next){ // hien thi cac nhan vien co tro
 module.exports.search = function(req,res){// tim kiem nhan vien
 	var q =req.query.q;
 	var data;
+	var page = parseInt(req.query.page) || 1;
+	var currentPage =[page];
+	var pages =[page,page+1,page+2];
+	var perPage =8;
+	var start = (page -1)*perPage;
+	var end = page*perPage;
 	connection.query("select * from employees",
 		function(err,result,next){
 		if(err) throw err;
 		data = result.filter(function(emp){
 			return emp.emp_name.toLowerCase().indexOf(q.toLowerCase()) !== -1;
 		});
-		res.render('employees/index', {emps: data});
+		res.render('employees/index', {emps: data.splice(start,end), n: pages, current: currentPage});
 	});
 }
 module.exports.create = function(req,res){  // render trang create
@@ -67,6 +73,7 @@ module.exports.getID =function(req,res){ // view employee
 		if (err){
 			console.log(err);
 		}
+		results[0][0].emp_dob = date.format(results[0][0].emp_dob,'YYYY-MM-DD');
 	    res.render('employees/view', {emps: results[0], salary: results[1], education: results[2], position: results[4]});
 	});
 }
@@ -79,6 +86,7 @@ module.exports.edit = function(req,res){ // goi procedure trong mysql va chinh s
 		if (err){
 			console.log(err);
 		}
+		results[0][0].emp_dob = date.format(results[0][0].emp_dob,'YYYY-MM-DD');
 		res.render('employees/edit',{emps: results[0], salary: results[1]});
 	});
 }

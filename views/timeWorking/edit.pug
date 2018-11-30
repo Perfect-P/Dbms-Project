@@ -3,7 +3,7 @@ block content
 
 	h1 Edit Time Working
 	each tk in tiwo
-		form(action="/timeWorking/edit", method="POST")
+		form(action="/timeWorking/"+tk.emp_id+"+"+tk.pos_id+"/edit", method="POST")
 			.form-group
 				label(for="emp_id") emp Name
 				input#emp_id.form-control(type="text", name="emp_id",value=tk.emp_id)
@@ -14,6 +14,6 @@ block content
 					
 			.form-group
 				label(for="inauguration") Date
-				input#inauguration.form-control(type="text", name="date",value=tk.inauguration)
+				input#inauguration.form-control(type="date", name="inauguration",value=tk.inauguration)
 
 			button.btn.btn-primary Create
