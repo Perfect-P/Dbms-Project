@@ -44,7 +44,7 @@ module.exports.create = function(req,res){  // render trang create
 
 
 module.exports.postCreate = function(req,res){// them nhan vien vao
-    connection.query('call add_emp(?,?,?,?,?,?,?,?,?)',
+    connection.query('call add_emp(?,?,?,?,?,?,?,?,?,?)',
 	[	req.body.id,
 		req.body.name,
 		req.body.address,

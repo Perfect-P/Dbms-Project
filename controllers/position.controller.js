@@ -5,6 +5,7 @@ var connection = mysql.createConnection({ // ket noi mysql
 	database:"dbms"
 });
 
+
 module.exports.index = function(req,res){
 	var page = parseInt(req.query.page) || 1;
     var currentPage =[page];
