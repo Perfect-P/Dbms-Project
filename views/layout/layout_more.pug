@@ -27,10 +27,15 @@ html
 							a.nav-link.text-nav.text-body(href="/timeWorking") Time Working
 						li.nav-item
 							a.nav-link.text-nav.text-body(href="/more") More+
-
-				
-
-			block content
+			.row
+				.col-3
+					nav.nav.flex-column
+						a.nav-link(href='/more/sum_emp') Sum Employees
+						a.nav-link(href='/more/day_worked') Day Worked
+						a.nav-link(href='/more/seid') SEID
+						a.nav-link(href='#') Disabled
+				.col-9
+					block content
 
 
 

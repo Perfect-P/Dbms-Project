@@ -1,0 +1,12 @@
+extends ../layout/layout_more.pug
+block content		
+	h1 Number of employees in Department
+	each seid in seids
+		form(action="/more/seid", method="GET")
+			.form-group
+				label(for="dept_id") Department ID
+				input#dept_id.form-control(type="text", name="dept_id")
+			.form-group
+				label Result
+				text.form-control(row='5')=seid.emp_sum
+			button.btn.btn-primary Show

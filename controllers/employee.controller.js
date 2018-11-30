@@ -50,7 +50,7 @@ module.exports.create = function(req,res){  // render trang create
 
 
 module.exports.postCreate = function(req,res){// them nhan vien vao
-    connection.query('call add_emp(?,?,?,?,?,?,?,?,?)',
+    connection.query('call add_emp(?,?,?,?,?,?,?,?,?,?)',
 	[	req.body.id,
 		req.body.name,
 		req.body.address,
@@ -106,7 +106,7 @@ module.exports.postEdit = function(req,res){// submit thong tin da chinh sua
 		req.body.gender,
 		req.body.birthday,
 		parseFloat(req.body.phone),
-		rep.body.department,
+		req.body.department,
 		req.body.position,
 		req.body.education,
 		req.body.username,
