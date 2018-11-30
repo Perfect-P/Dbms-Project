@@ -1,0 +1,9 @@
+extends ../layout/layout_more.pug
+block content
+    h1 Sum Employees
+    each se in ses
+        form(action="/more/sum_emp", method="GET")
+            .form-group
+                label Result
+                text.form-control(row='5')=se.sum_emp+" Employees"
+			

@@ -98,7 +98,7 @@ module.exports.postEdit = function(req,res){// submit thong tin da chinh sua
 		req.body.gender,
 		req.body.birthday,
 		parseFloat(req.body.phone),
-		rep.body.department,
+		req.body.department,
 		req.body.position,
 		req.body.education,
 		req.body.username,

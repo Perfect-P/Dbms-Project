@@ -1,0 +1,12 @@
+extends ../layout/layout_more.pug
+block content		
+	h1 Days Worked
+	each dw in dws
+		form(action="/more/day_worked", method="GET")
+			.form-group
+				label(for="id") Employees ID
+				input#id.form-control(type="text", name="id")
+			.form-group
+				label Result
+				text.form-control(row='5')=dw.days_sum
+			button.btn.btn-primary Show

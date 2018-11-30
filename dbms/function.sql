@@ -72,12 +72,12 @@ select show_sal('emp0000002') as sum_sal;
 desc departments;
 
 delimiter :)
-create function sum_emp_in_dept(v_dept_name varchar(30)) returns numeric
+create function sum_emp_in_dept(v_dept_id char(10)) returns numeric
 begin
 
 	declare emp_sum numeric(20, 5) default 0;
     declare temp char(10) default null;
-    select dept_id into temp from departments where v_dept_name = dept_name ;
+    select dept_id into temp from departments where v_dept_id = dept_id ;
 	if (temp is not null) then
 		select count(emp_id) into emp_sum from employees where dept_id = temp;
 	end if;
@@ -86,11 +86,14 @@ end :)
 delimiter ;
 
 drop function if exists sum_emp_in_dept;
-select sum_emp_in_dept('Pham Hoang Hao');
+select sum_emp_in_dept('dept000001');
 
 # number emp co bang xuat sac
 
-# so nhan vien co thoi gian lam viec nhiu hon n
+
+
+
+
 
 # nhan vien co ngay sinh trong thang nao do de to chuc sinh nhat
 

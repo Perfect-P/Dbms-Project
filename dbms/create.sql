@@ -1,27 +1,20 @@
 use dbms;
 #-------1
 desc educations;
+desc employees;
 delimiter :)
 create procedure add_emp(v_id char(10), v_name varchar(50), v_address varchar(100),v_gender char(1),
- v_birthday date, v_phone numeric(11,0), v_dept_name varchar(30), v_pos_name varchar(50), v_edu_name varchar(50), v_accname varchar(60), v_sal numeric(10, 5))
+ v_birthday date, v_phone numeric(11,0), v_dept_id char(10), v_pos_id char(10), v_edu_id char(10), v_sal_lvl numeric(10, 5))
 begin
 
-	declare v_dept_id varchar(30);
-    declare v_pos_id varchar(50);
-    declare v_edu_id varchar(50);
-    
-    select dept_id into v_dept_id from departments where v_dept_name = dept_name;
-    select pos_id into v_pos_id from positions where v_pos_name = pos_name;
-    select edu_id into v_edu_id from educations where v_edu_name = edu_name;
-    
-	insert into employees(emp_id, emp_name, emp_address, emp_gender, emp_dob, emp_phone, dept_id, pos_id, edu_id ,acc_name, sal_lvl)
-    values				(v_id	, v_name	, v_address,v_gender	,v_birthday, v_phone, v_dept_id, v_pos_id, v_edu_id, v_accname, v_sal);
+	insert into employees(emp_id, emp_name, emp_address, emp_gender, emp_dob, emp_phone, dept_id, pos_id, edu_id, sal_lvl)
+    values				(v_id	, v_name	, v_address,v_gender	,v_birthday, v_phone, v_dept_id, v_pos_id, v_edu_id, v_sal);
 end:)
 
 delimiter ;
 
 drop procedure add_emp;
-call add_emp('emp0000002','Hoang Hao', 'Can Tho', 'M', '1998-7-6', 0987654321,'Pham Hoang Hao', 'lao cong', 'tien si','phamhoanghao', 2);
+call add_emp('emp0000002','Hoang Hao', 'Can Tho', 'M', '1998-7-6', 0987654321,'dept000002', 'pos0000001', 'edu0000001', 2);
 desc employees;
 
 select * from educations;
